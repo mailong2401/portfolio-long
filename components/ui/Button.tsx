@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 
 interface ButtonProps {
   children?: ReactNode
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'playful' | 'rainbow'
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
   size?: 'sm' | 'md' | 'lg' | 'icon'
   className?: string
   onClick?: () => void
@@ -18,7 +18,7 @@ interface ButtonProps {
 
 export default function Button({
   children,
-  variant = 'playful',
+  variant = 'primary',
   size = 'md',
   className = '',
   onClick,

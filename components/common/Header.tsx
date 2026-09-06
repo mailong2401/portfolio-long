@@ -83,7 +83,6 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 label={link.label}
-                dropdown={link.dropdown}
                 isOpen={openDropdown === link.href}
                 onOpen={() => setOpenDropdown(link.href)}
                 onClose={() => setOpenDropdown(null)}
@@ -117,7 +116,6 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   label={link.label}
-                  dropdown={link.dropdown}
                   onClose={() => setIsMobileMenuOpen(false)}
                 />
               ))}
