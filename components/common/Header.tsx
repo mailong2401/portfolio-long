@@ -15,10 +15,44 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [activeSection, setActiveSection] = useState<string>('')
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setMounted(true)
+  }, [])
+
+  // Theo dõi scroll để cập nhật active section
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id]')
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id
+            setActiveSection(`#${id}`)
+
+            // Cập nhật URL hash
+            const url = new URL(window.location.href)
+            url.hash = `#${id}`
+            window.history.pushState({}, '', url.toString())
+          }
+        })
+      },
+      {
+        rootMargin: '-30% 0px -30% 0px',
+        threshold: 0.1
+      }
+    )
+
+    sections.forEach((section) => {
+      observer.observe(section)
+    })
+
+    return () => {
+      observer.disconnect()
+    }
   }, [])
 
   // Close dropdown when clicking outside
@@ -34,11 +68,11 @@ export default function Header() {
 
   const navLinks = [
     {
-      href: '/',
+      href: '#about',
       label: 'About'
     },
     {
-      href: '#skill',
+      href: '#skills',
       label: 'Skills'
     },
     {
@@ -69,33 +103,38 @@ export default function Header() {
     <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-6xl">
       <nav className="relative bg-background/95 backdrop-blur-md border-2 border-border rounded-2xl px-4 py-3 shadow-border-md hover:shadow-border-lg transition-all duration-300">
         <div className="flex items-center justify-between">
-          {/* Logo - Sử dụng hình ảnh */}
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
             <span className="text-xl font-bold text-primary hidden sm:block">
               Long Dev
             </span>
           </Link>
 
-          {/* Desktop Menu - Sử dụng NavItem component */}
+          {/* Desktop Menu */}
           <div className="hidden xl:flex items-center gap-1 flex-1 justify-center" ref={dropdownRef}>
-            {navLinks.map((link) => (
-              <NavItem
-                key={link.href}
-                href={link.href}
-                label={link.label}
-                isOpen={openDropdown === link.href}
-                onOpen={() => setOpenDropdown(link.href)}
-                onClose={() => setOpenDropdown(null)}
-              />
-            ))}
+            {navLinks.map((link) => {
+              // Truyền active state từ Header xuống
+              const isActive = link.href === '/'
+                ? !activeSection && window.location.pathname === '/'
+                : activeSection === link.href
+
+              return (
+                <NavItem
+                  key={link.href}
+                  href={link.href}
+                  label={link.label}
+                  isOpen={openDropdown === link.href}
+                  onOpen={() => setOpenDropdown(link.href)}
+                  onClose={() => setOpenDropdown(null)}
+                  isActive={isActive}
+                />
+              )
+            })}
           </div>
 
           {/* Right Actions */}
           <div className="flex items-center gap-2.5 flex-shrink-0">
-            {/* Theme Toggle */}
             <ThemeToggle />
-
-            {/* Mobile Menu Toggle */}
             <IconButton
               icon={isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -106,11 +145,10 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu - Sử dụng MobileDropdown component */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 mt-2 bg-background/98 backdrop-blur-md border-2 border-border rounded-2xl p-4 shadow-border-md max-h-[80vh] overflow-y-auto">
             <div className="flex flex-col gap-1">
-              {/* Main nav links with dropdown on mobile */}
               {navLinks.map((link) => (
                 <MobileDropdown
                   key={link.href}
@@ -119,7 +157,6 @@ export default function Header() {
                   onClose={() => setIsMobileMenuOpen(false)}
                 />
               ))}
-
               <div className="border-t border-border/50 my-2"></div>
               <ThemeToggle />
             </div>

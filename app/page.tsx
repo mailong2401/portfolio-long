@@ -67,7 +67,7 @@ export default function HomePages() {
     <main className="min-h-screen ">
 
       {/* ====== HERO SECTION - Căn giữa ====== */}
-      <section className="min-h-screen flex items-center justify-center p-4">
+      <section id="about" className="min-h-screen flex items-center justify-center p-4">
         <div className="max-w-7xl w-full border-2 border-border rounded-2xl p-8 md:p-12 shadow-border-md hover:shadow-border-lg">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
             {/* Avatar */}
@@ -303,7 +303,7 @@ export default function HomePages() {
       </section>
 
       {/* ====== PROJECTS SECTION ====== */}
-      <section id="projects" className="py-16 px-4">
+      <section id="opensource" className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             <span className="bg-gradient-to-r from-normal-red via-normal-yellow to-normal-magenta bg-clip-text text-transparent">

@@ -18,6 +18,7 @@ interface NavItemProps {
   isOpen: boolean
   onOpen: () => void
   onClose: () => void
+  isActive: boolean   // 👈 nhận từ Header thay vì tự tính
 }
 
 export default function NavItem({
@@ -27,24 +28,14 @@ export default function NavItem({
   isOpen,
   onOpen,
   onClose,
+  isActive,
 }: NavItemProps) {
-  const pathname = usePathname()
   const [isHovering, setIsHovering] = useState(false)
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const openTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  const isActive = (path: string) => {
-    if (pathname === path) return true
-    if (dropdown) {
-      return dropdown.some(item => pathname === item.href)
-    }
-
-    return false
-  }
-
   const hasDropdown = dropdown && dropdown.length > 0
 
-  // Clear all timeouts
   const clearTimeouts = () => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current)
@@ -56,7 +47,6 @@ export default function NavItem({
     }
   }
 
-  // Handle mouse enter with delay
   const handleMouseEnter = () => {
     clearTimeouts()
     setIsHovering(true)
@@ -67,7 +57,6 @@ export default function NavItem({
     }
   }
 
-  // Handle mouse leave with delay
   const handleMouseLeave = () => {
     clearTimeouts()
     setIsHovering(false)
@@ -78,12 +67,12 @@ export default function NavItem({
     }
   }
 
-  // Cleanup timeouts on unmount
   useEffect(() => {
     return () => clearTimeouts()
   }, [])
 
-  const isLinkActive = isActive(href)
+  // 👇 gộp active thật (từ scroll/click) với hover để phản hồi tức thì
+  const isLinkActive = isActive || isHovering
 
   return (
     <div
@@ -107,7 +96,6 @@ export default function NavItem({
         )}
       </Link>
 
-      {/* Dropdown Menu with hover handling */}
       {hasDropdown && (
         <div
           onMouseEnter={() => {
