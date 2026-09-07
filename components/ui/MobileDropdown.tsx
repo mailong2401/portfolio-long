@@ -14,6 +14,7 @@ interface MobileDropdownProps {
   href: string
   label: string
   dropdown?: DropdownItem[]
+  isActive?: boolean // Thêm isActive vào props
   onClose: () => void
 }
 
@@ -21,21 +22,23 @@ export default function MobileDropdown({
   href,
   label,
   dropdown,
+  isActive = false,
   onClose,
 }: MobileDropdownProps) {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const hasDropdown = dropdown && dropdown.length > 0
-  const isActive = (path: string) => pathname === path
+
+  // Nếu không có isActive từ props, tự tính
+  const active = isActive || (pathname === href)
 
   return (
     <div>
       <div
-        className={`px-4 py-2.5 rounded-xl transition-all duration-300 flex border-border items-center gap-3 border-2 cursor-pointer ${
-          isActive(href)
+        className={`px-4 py-2.5 rounded-xl transition-all duration-300 flex border-border items-center gap-3 border-2 cursor-pointer ${active
             ? 'bg-primary/20 text-primary shadow-primary-sm'
             : 'border-transparent text-foreground/70 hover:bg-primary/10 hover:text-primary'
-        }`}
+          }`}
         onClick={() => {
           if (hasDropdown) {
             setIsOpen(!isOpen)
@@ -47,18 +50,18 @@ export default function MobileDropdown({
       >
         <span className="flex-1">{label}</span>
         {hasDropdown && (
-          <ChevronDown 
-            size={18} 
+          <ChevronDown
+            size={18}
             className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
           />
         )}
       </div>
-      
+
       {/* Mobile Dropdown */}
       {hasDropdown && isOpen && (
         <div className="ml-6 mt-1 space-y-1 border-l-2 border-border pl-4">
           {dropdown.map((item) => {
-            const isItemActive = isActive(item.href)
+            const isItemActive = pathname === item.href
             return (
               <Link
                 key={item.href}
@@ -67,11 +70,10 @@ export default function MobileDropdown({
                   onClose()
                   setIsOpen(false)
                 }}
-                className={`px-4 py-2.5 rounded-xl transition-all duration-300 flex items-center gap-3 ${
-                  isItemActive
+                className={`px-4 py-2.5 rounded-xl transition-all duration-300 flex items-center gap-3 ${isItemActive
                     ? 'bg-primary/20 text-primary'
                     : 'text-foreground/60 hover:bg-primary/10 hover:text-primary'
-                }`}
+                  }`}
               >
                 <span className="text-sm">{item.label}</span>
               </Link>
