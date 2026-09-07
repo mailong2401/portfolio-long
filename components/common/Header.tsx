@@ -173,15 +173,6 @@ export default function Header() {
 
               {/* Divider */}
               <div className="border-t border-border/50 my-2"></div>
-
-              {/* Mobile bottom actions - Music Player + Theme Toggle */}
-              <div className="flex items-center justify-between pt-2">
-                <div className="flex items-center gap-4">
-                  <MusicPlayer />
-                  <span className="text-xs text-primary-dim-fg">Play music</span>
-                </div>
-                <ThemeToggle />
-              </div>
             </div>
           </div>
         )}
