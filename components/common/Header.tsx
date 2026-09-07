@@ -10,6 +10,7 @@ import IconButton from '@/components/ui/IconButton'
 import NavItem from '@/components/common/NavItem'
 import ThemeToggle from '@/components/common/ThemeToggle'
 import MobileDropdown from '@/components/ui/MobileDropdown'
+import MusicPlayer from '@/components/ui/MusicPlayer'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -100,8 +101,8 @@ export default function Header() {
   if (!mounted) return null
 
   return (
-    <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-6xl">
-      <nav className="relative bg-background/95 backdrop-blur-md border-2 border-border rounded-2xl px-4 py-3 shadow-border-md hover:shadow-border-lg transition-all duration-300">
+    <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-8xl">
+      <nav className="relative bg-background/70 backdrop-blur-md border-2 border-border rounded-2xl px-4 py-3 shadow-border-md hover:shadow-border-lg transition-all duration-300">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
@@ -113,7 +114,6 @@ export default function Header() {
           {/* Desktop Menu */}
           <div className="hidden xl:flex items-center gap-1 flex-1 justify-center" ref={dropdownRef}>
             {navLinks.map((link) => {
-              // Truyền active state từ Header xuống
               const isActive = link.href === '/'
                 ? !activeSection && window.location.pathname === '/'
                 : activeSection === link.href
@@ -134,31 +134,54 @@ export default function Header() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-2.5 flex-shrink-0">
+            {/* Music Player - nằm bên trái ThemeToggle */}
+            <MusicPlayer />
+
+            {/* Theme Toggle */}
             <ThemeToggle />
+
+            {/* Mobile Menu Toggle */}
             <IconButton
               icon={isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               variant="ghost"
               size="sm"
-              className="lg:hidden text-foreground/60 hover:text-primary hover:bg-primary/10 transition-all"
+              className="xl:hidden text-foreground/60 hover:text-primary hover:bg-primary/10 transition-all"
             />
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Sửa lại mobile menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 mt-2 bg-background/98 backdrop-blur-md border-2 border-border rounded-2xl p-4 shadow-border-md max-h-[80vh] overflow-y-auto">
+          <div className="xl:hidden absolute top-full left-0 right-0 mt-2 bg-background/98 backdrop-blur-md border-2 border-border rounded-2xl p-4 shadow-border-md max-h-[80vh] overflow-y-auto">
             <div className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <MobileDropdown
-                  key={link.href}
-                  href={link.href}
-                  label={link.label}
-                  onClose={() => setIsMobileMenuOpen(false)}
-                />
-              ))}
+              {navLinks.map((link) => {
+                const isActive = link.href === '/'
+                  ? !activeSection && window.location.pathname === '/'
+                  : activeSection === link.href
+
+                return (
+                  <MobileDropdown
+                    key={link.href}
+                    href={link.href}
+                    label={link.label}
+                    isActive={isActive}
+                    onClose={() => setIsMobileMenuOpen(false)}
+                  />
+                )
+              })}
+
+              {/* Divider */}
               <div className="border-t border-border/50 my-2"></div>
-              <ThemeToggle />
+
+              {/* Mobile bottom actions - Music Player + Theme Toggle */}
+              <div className="flex items-center justify-between pt-2">
+                <div className="flex items-center gap-4">
+                  <MusicPlayer />
+                  <span className="text-xs text-primary-dim-fg">Play music</span>
+                </div>
+                <ThemeToggle />
+              </div>
             </div>
           </div>
         )}

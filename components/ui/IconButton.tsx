@@ -149,7 +149,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       ghost: [
         'bg-transparent text-foreground',
         'border-2 border-transparent',
-        'hover:bg-secondary hover:border-foreground hover:text-primary hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-border-sm',
+        'hover:bg-secondary hover:border-border hover:text-primary hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-border-sm',
         'active:translate-x-[4px] active:translate-y-[4px] active:shadow-none',
       ].join(' '),
     }

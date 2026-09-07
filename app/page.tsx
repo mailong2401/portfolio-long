@@ -10,6 +10,7 @@ import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/layout/Footer';
 import PlanetEarth from '@/components/ui/PlanetEarth';
 import PlanetMars from '@/components/ui/PlanetMars';
+import PlanetSaturn from '@/components/ui/PlanetSaturn';
 import StarField from '@/components/ui/StarField';
 import Moon from '@/components/ui/Moon';
 
@@ -20,6 +21,7 @@ export default function HomePages() {
       <Moon />
       <PlanetEarth />
       <PlanetMars />
+      <PlanetSaturn />
       <StarField />
 
       {/* Content */}

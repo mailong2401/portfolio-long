@@ -410,11 +410,11 @@
 
 /* CSS classes */
 .animate-mars-orbit {
-  animation: mars-orbit 25s ease-in-out infinite;
+  animation: mars-orbit 40s ease-in-out infinite;
 }
 
 .animate-mars-rotate {
-  animation: mars-rotate 8s ease-in-out infinite;
+  animation: mars-rotate 15s ease-in-out infinite;
 }
 
 /* ===== Planet Earth Animations ===== */
@@ -471,11 +471,11 @@
 
 /* CSS classes */
 .animate-earth-orbit {
-  animation: earth-orbit 30s ease-in-out infinite;
+  animation: earth-orbit 40s ease-in-out infinite;
 }
 
 .animate-earth-rotate {
-  animation: earth-rotate 8s ease-in-out infinite;
+  animation: earth-rotate 10s ease-in-out infinite;
 }
 
 /* ===== Moon Animations ===== */
@@ -511,7 +511,7 @@
 
 /* CSS classes */
 .animate-moon-orbit {
-  animation: moon-orbit 15s linear infinite;
+  animation: moon-orbit 10s linear infinite;
 }
 
 .animate-moon-rotate {
@@ -534,4 +534,65 @@
 
 .animate-twinkle {
   animation: twinkle var(--twinkle-duration, 3s) ease-in-out infinite;
+}
+
+/* ===== Planet Saturn Animations ===== */
+
+/* Quỹ đạo elip cho Sao Thổ */
+@keyframes saturn-orbit {
+  0% {
+    transform: translate(-50%, -50%) translate(80px, 0px);
+  }
+  12.5% {
+    transform: translate(-50%, -50%) translate(68px, 40px);
+  }
+  25% {
+    transform: translate(-50%, -50%) translate(0px, 75px);
+  }
+  37.5% {
+    transform: translate(-50%, -50%) translate(-68px, 40px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(-80px, 0px);
+  }
+  62.5% {
+    transform: translate(-50%, -50%) translate(-68px, -40px);
+  }
+  75% {
+    transform: translate(-50%, -50%) translate(0px, -75px);
+  }
+  87.5% {
+    transform: translate(-50%, -50%) translate(68px, -40px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(80px, 0px);
+  }
+}
+
+/* Xoay nhẹ Sao Thổ */
+@keyframes saturn-rotate {
+  0%, 100% {
+    transform: rotate(-2deg);
+  }
+  25% {
+    transform: rotate(4deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
+}
+
+/* CSS classes */
+.animate-saturn-orbit {
+  animation: saturn-orbit 100s ease-in-out infinite;
+}
+
+.animate-saturn-rotate {
+  animation: saturn-rotate 50s ease-in-out infinite;
 }

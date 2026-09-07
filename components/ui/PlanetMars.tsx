@@ -1,18 +1,20 @@
+'use client';
+
 import Image from 'next/image';
 
 export default function PlanetMars() {
   return (
     <div className="fixed left-8 md:left-16 top-1/5 md:top-1/7 pointer-events-none z-0 opacity-40">
-      {/* Container chính */}
-      <div className="relative w-72 h-72 md:w-[420px] md:h-[420px] lg:w-[560px] lg:h-[560px]">
+      {/* Container chính - nhỏ hơn Earth */}
+      <div className="relative w-48 h-48 md:w-72 md:h-72 lg:w-[380px] lg:h-[380px]">
         {/* Quỹ đạo hiển thị */}
         <div className="absolute inset-0 rounded-full border border-red-500/10 animate-rotate-slow" style={{ animationDuration: '45s' }} />
         <div className="absolute inset-[-15%] rounded-full border border-red-500/5 animate-rotate-slow" style={{ animationDuration: '55s', animationDirection: 'reverse' }} />
         <div className="absolute inset-[-30%] rounded-full border border-orange-500/5 animate-rotate-slow" style={{ animationDuration: '65s' }} />
 
-        {/* Planet Mars với CSS animation */}
+        {/* Planet Mars với CSS animation - nhỏ hơn Earth */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] md:w-[260px] md:h-[260px] lg:w-[340px] lg:h-[340px] animate-mars-orbit"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140px] h-[140px] md:w-[200px] md:h-[200px] lg:w-[260px] lg:h-[260px] animate-mars-orbit"
         >
           <div className="relative w-full h-full animate-mars-rotate">
             {/* Mars image */}
