@@ -2,39 +2,41 @@
 
 import { Sparkles, Palette, Moon } from 'lucide-react';
 import { SiArchlinux } from 'react-icons/si';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import Avatar from '@/components/ui/Avatar';
 import TerminalInfo from '@/components/ui/TerminalInfo';
 import TechStack from '@/components/ui/TechStack';
 import PassionCard from '@/components/ui/PassionCard';
 
-export default function HeroSection() {
+// 1. Tách Typing Effect ra Component riêng biệt để TRÁNH re-render toàn bộ HeroSection
+function TypingRole() {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const roles = [
-    'Creative Coder',
-    'Full Stack Developer',
-    'UI/UX Enthusiast',
-    'Arch Linux User',
-    'Open Source Contributor'
-  ];
+  // Dùng useMemo hoặc chuyển roles ra ngoài component để tránh tạo lại tham chiếu
+  const roles = useMemo(
+    () => [
+      'Creative Coder',
+      'Full Stack Developer',
+      'UI/UX Enthusiast',
+      'Arch Linux User',
+      'Open Source Contributor',
+    ],
+    []
+  );
 
-  // Typing effect
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    const current = loopNum % roles.length;
+    const fullText = roles[current];
 
-    const handleTyping = () => {
-      const current = loopNum % roles.length;
-      const fullText = roles[current];
-
+    const timer = setTimeout(() => {
       if (isDeleting) {
-        setDisplayText(fullText.substring(0, displayText.length - 1));
+        setDisplayText((prev) => fullText.substring(0, prev.length - 1));
         setTypingSpeed(50);
       } else {
-        setDisplayText(fullText.substring(0, displayText.length + 1));
+        setDisplayText((prev) => fullText.substring(0, prev.length + 1));
         setTypingSpeed(150);
       }
 
@@ -42,21 +44,34 @@ export default function HeroSection() {
         setTimeout(() => setIsDeleting(true), 2000);
       } else if (isDeleting && displayText === '') {
         setIsDeleting(false);
-        setLoopNum(loopNum + 1);
+        setLoopNum((prev) => prev + 1);
         setTypingSpeed(150);
       }
-    };
+    }, typingSpeed);
 
-    timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, loopNum, typingSpeed, roles]);
+
+  return (
+    <span className="text-normal-cyan whitespace-nowrap">
+      {displayText}
+      <span
+        className={`inline-block w-0.5 h-6 ml-0.5 bg-normal-magenta ${displayText ? 'animate-blink' : ''
+          }`}
+      />
+    </span>
+  );
+}
+
+export default function HeroSection() {
+  // Static emoji list để tránh tạo lại mảng mỗi lần render
+  const EMOJIS = ['🚀', '💻', '🎨', '⚡', '✨', '🔥'];
 
   return (
     <section
       id="about"
       className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden"
     >
-      {/* Main content */}
       <div className="max-w-7xl w-full border-2 bg-background/50 border-border rounded-2xl p-8 md:p-12 shadow-border-md hover:shadow-border-lg relative z-10">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
           {/* Avatar with glow effect */}
@@ -71,25 +86,20 @@ export default function HeroSection() {
           {/* Thông tin chính */}
           <div className="flex-1 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 mb-1 flex-wrap">
-              <h1
-                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground transition-all duration-300 hover:text-normal-blue hover:-translate-y-0.5 hover:scale-105 inline-block"
-              >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground transition-all duration-300 hover:text-normal-blue hover:-translate-y-0.5 hover:scale-105 inline-block">
                 Mai Dương Long
               </h1>
               <Sparkles className="w-6 h-6 text-normal-yellow animate-pulse-slow" />
               <Moon className="w-5 h-5 text-normal-cyan animate-float hidden sm:inline-block" />
             </div>
 
-            {/* Typing effect */}
+            {/* Typing effect tách riêng */}
             <div className="text-xl text-primary-bright-fg mb-2 flex items-center justify-center md:justify-start gap-2 flex-wrap min-h-[2.8rem]">
               <span className="text-normal-red">✦</span>
               <span className="font-medium inline-flex items-center flex-wrap">
                 <span className="text-foreground whitespace-nowrap">Lập trình viên</span>
                 <span className="text-normal-red mx-1">|</span>
-                <span className="text-normal-cyan whitespace-nowrap">
-                  {displayText}
-                  <span className={`inline-block w-0.5 h-6 ml-0.5 bg-normal-magenta ${displayText ? 'animate-blink' : ''}`} />
-                </span>
+                <TypingRole />
               </span>
               <span className="text-normal-red">✦</span>
             </div>
@@ -104,13 +114,13 @@ export default function HeroSection() {
               <span className="text-foreground font-medium hover:text-normal-magenta/80 transition-colors cursor-default relative group">
                 Mobile
                 <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-normal-magenta scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-              </span>
-              {' '}sử dụng JavaScript / Reactjs / Nodejs / React Native cùng các thư viện và framework hiện đại khác.
+              </span>{' '}
+              sử dụng JavaScript / Reactjs / Nodejs / React Native cùng các thư viện và framework hiện đại khác.
             </p>
 
             {/* Decorative floating tags */}
             <div className="flex flex-wrap gap-2 mt-3 justify-center md:justify-start">
-              {['🚀', '💻', '🎨', '⚡', '✨', '🔥'].map((emoji, i) => (
+              {EMOJIS.map((emoji, i) => (
                 <span
                   key={i}
                   className="text-lg animate-float"
