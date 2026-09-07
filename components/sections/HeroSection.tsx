@@ -1,50 +1,133 @@
 'use client';
 
-import { Mail, FileText, Sparkles, Palette } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaFacebook, FaYoutube } from 'react-icons/fa6';
+import { Sparkles, Palette, Moon } from 'lucide-react';
 import { SiArchlinux } from 'react-icons/si';
+import { useEffect, useState, useRef } from 'react';
 import Avatar from '@/components/ui/Avatar';
 import TerminalInfo from '@/components/ui/TerminalInfo';
 import TechStack from '@/components/ui/TechStack';
 import PassionCard from '@/components/ui/PassionCard';
 
 export default function HeroSection() {
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  const roles = [
+    'Creative Coder',
+    'Full Stack Developer',
+    'UI/UX Enthusiast',
+    'Arch Linux User',
+    'Open Source Contributor'
+  ];
+
+  // Typing effect
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+
+    const handleTyping = () => {
+      const current = loopNum % roles.length;
+      const fullText = roles[current];
+
+      if (isDeleting) {
+        setDisplayText(fullText.substring(0, displayText.length - 1));
+        setTypingSpeed(50);
+      } else {
+        setDisplayText(fullText.substring(0, displayText.length + 1));
+        setTypingSpeed(150);
+      }
+
+      if (!isDeleting && displayText === fullText) {
+        setTimeout(() => setIsDeleting(true), 2000);
+      } else if (isDeleting && displayText === '') {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+        setTypingSpeed(150);
+      }
+    };
+
+    timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, loopNum, typingSpeed, roles]);
+
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center p-4">
-      <div className="max-w-7xl w-full border-2 bg-background/50 border-border rounded-2xl p-8 md:p-12 shadow-border-md hover:shadow-border-lg">
+    <section
+      id="about"
+      className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden"
+    >
+      {/* Main content */}
+      <div className="max-w-7xl w-full border-2 bg-background/50 border-border rounded-2xl p-8 md:p-12 shadow-border-md hover:shadow-border-lg relative z-10">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-          <Avatar />
+          {/* Avatar with glow effect */}
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-normal-red via-normal-yellow to-normal-magenta rounded-full blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500" />
+            <div className="relative">
+              <Avatar />
+            </div>
+            <div className="absolute -top-2 -right-2 w-3 h-3 bg-normal-green rounded-full animate-ping" />
+          </div>
 
           {/* Thông tin chính */}
           <div className="flex-1 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-normal-red via-normal-yellow to-normal-magenta bg-clip-text text-transparent animate-gradient bg-[length:200%_200%]">
+            <div className="flex items-center justify-center md:justify-start gap-2 mb-1 flex-wrap">
+              <h1 className="text-4xl leading-tight md:text-5xl font-bold bg-gradient-to-r from-normal-red via-normal-yellow to-normal-magenta bg-clip-text text-transparent animate-gradient bg-[length:200%_200%] hover:scale-105 transition-transform duration-300">
                 Mai Dương Long
               </h1>
               <Sparkles className="w-6 h-6 text-normal-yellow animate-pulse-slow" />
+              <Moon className="w-5 h-5 text-normal-cyan animate-float hidden sm:inline-block" />
             </div>
 
-            <p className="text-xl text-primary-bright-fg mb-2 flex items-center justify-center md:justify-start gap-2">
+            {/* Typing effect */}
+            <div className="text-xl text-primary-bright-fg mb-2 flex items-center justify-center md:justify-start gap-2 flex-wrap min-h-[2.8rem]">
               <span className="text-normal-red">✦</span>
-              Lập trình viên Full Stack đầy nhiệt huyết
+              <span className="font-medium inline-flex items-center flex-wrap">
+                <span className="text-foreground whitespace-nowrap">Lập trình viên</span>
+                <span className="text-normal-red mx-1">|</span>
+                <span className="text-normal-cyan whitespace-nowrap">
+                  {displayText}
+                  <span className={`inline-block w-0.5 h-6 ml-0.5 bg-normal-magenta ${displayText ? 'animate-blink' : ''}`} />
+                </span>
+              </span>
               <span className="text-normal-red">✦</span>
+            </div>
+
+            <p className="text-primary-dim-fg max-w-2xl mx-auto md:mx-0 leading-relaxed">
+              Với kinh nghiệm xây dựng các ứng dụng{' '}
+              <span className="text-normal-red font-medium hover:text-normal-red/80 transition-colors cursor-default relative group">
+                Web
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-normal-red scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+              </span>{' '}
+              và{' '}
+              <span className="text-normal-magenta font-medium hover:text-normal-magenta/80 transition-colors cursor-default relative group">
+                Mobile
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-normal-magenta scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+              </span>
+              {' '}sử dụng JavaScript / Reactjs / Nodejs / React Native cùng các thư viện và framework hiện đại khác.
             </p>
 
-            <p className="text-primary-dim-fg max-w-2xl mx-auto md:mx-0">
-              Với kinh nghiệm xây dựng các ứng dụng{' '}
-              <span className="text-normal-red font-medium">Web</span> và{' '}
-              <span className="text-normal-magenta font-medium">Mobile</span>
-              sử dụng JavaScript / Reactjs / Nodejs / React Native cùng các thư viện và framework hiện đại khác.
-            </p>
+            {/* Decorative floating tags */}
+            <div className="flex flex-wrap gap-2 mt-3 justify-center md:justify-start">
+              {['🚀', '💻', '🎨', '⚡', '✨', '🔥'].map((emoji, i) => (
+                <span
+                  key={i}
+                  className="text-lg animate-float"
+                  style={{ animationDelay: `${i * 0.2}s` }}
+                >
+                  {emoji}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Divider */}
         <div className="my-8 flex items-center gap-4">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-button-bg to-transparent" />
-          <div className="flex items-center gap-2 px-4 py-1 bg-background/30 rounded-full border border-button-bg/30 shadow-border-md hover:shadow-border-lg">
-            <SiArchlinux className="w-4 h-4 text-normal-magenta" />
+          <div className="flex items-center gap-2 px-4 py-1 bg-background/30 rounded-full border border-button-bg/30 shadow-border-md hover:shadow-border-lg transition-all duration-300 hover:scale-105 cursor-default">
+            <SiArchlinux className="w-4 h-4 text-normal-magenta animate-spin-slow" />
             <span className="text-xs text-primary-dim-fg">Arch Linux</span>
+            <span className="w-1.5 h-1.5 bg-normal-green rounded-full animate-pulse" />
           </div>
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-button-bg to-transparent" />
         </div>
