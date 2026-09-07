@@ -63,7 +63,7 @@ export default function StarField() {
     // Tạo các ngôi sao
     const createStars = () => {
       const stars: Star[] = [];
-      const numStars = 400;
+      const numStars = 50;
 
       for (let i = 0; i < numStars; i++) {
         stars.push({
