@@ -355,34 +355,165 @@
   will-change: clip-path;
 }
 
-/* Moon specific animations */
-@keyframes moon-float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  33% {
-    transform: translateY(-15px) rotate(2deg);
-  }
-  66% {
-    transform: translateY(10px) rotate(-2deg);
-  }
-}
 
-@keyframes moon-glow {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
+/* ===== Planet Mars Animations ===== */
+
+/* Quỹ đạo elip cho Sao Hỏa */
+@keyframes mars-orbit {
+  0% {
+    transform: translate(-50%, -50%) translate(50px, 0px);
+  }
+  12.5% {
+    transform: translate(-50%, -50%) translate(42px, 32px);
+  }
+  25% {
+    transform: translate(-50%, -50%) translate(0px, 60px);
+  }
+  37.5% {
+    transform: translate(-50%, -50%) translate(-42px, 32px);
   }
   50% {
-    opacity: 0.6;
-    transform: scale(1.1);
+    transform: translate(-50%, -50%) translate(-50px, 0px);
+  }
+  62.5% {
+    transform: translate(-50%, -50%) translate(-42px, -32px);
+  }
+  75% {
+    transform: translate(-50%, -50%) translate(0px, -60px);
+  }
+  87.5% {
+    transform: translate(-50%, -50%) translate(42px, -32px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(50px, 0px);
   }
 }
 
-.animate-moon-float {
-  animation: moon-float 8s ease-in-out infinite;
+/* Xoay nhẹ Sao Hỏa */
+@keyframes mars-rotate {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-3deg);
+  }
 }
 
-.animate-moon-glow {
-  animation: moon-glow 4s ease-in-out infinite;
+/* CSS classes */
+.animate-mars-orbit {
+  animation: mars-orbit 25s ease-in-out infinite;
+}
+
+.animate-mars-rotate {
+  animation: mars-rotate 8s ease-in-out infinite;
+}
+
+/* ===== Planet Earth Animations ===== */
+
+/* Quỹ đạo elip cho Trái Đất */
+@keyframes earth-orbit {
+  0% {
+    transform: translate(-50%, -50%) translate(60px, 0px);
+  }
+  12.5% {
+    transform: translate(-50%, -50%) translate(51px, 22px);
+  }
+  25% {
+    transform: translate(-50%, -50%) translate(0px, 35px);
+  }
+  37.5% {
+    transform: translate(-50%, -50%) translate(-51px, 22px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(-60px, 0px);
+  }
+  62.5% {
+    transform: translate(-50%, -50%) translate(-51px, -22px);
+  }
+  75% {
+    transform: translate(-50%, -50%) translate(0px, -35px);
+  }
+  87.5% {
+    transform: translate(-50%, -50%) translate(51px, -22px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(60px, 0px);
+  }
+}
+
+/* Xoay nhẹ Trái Đất */
+@keyframes earth-rotate {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-3deg);
+  }
+}
+
+/* CSS classes */
+.animate-earth-orbit {
+  animation: earth-orbit 30s ease-in-out infinite;
+}
+
+.animate-earth-rotate {
+  animation: earth-rotate 8s ease-in-out infinite;
+}
+
+/* ===== Moon Animations ===== */
+
+/* Quỹ đạo tròn cho Mặt Trăng */
+@keyframes moon-orbit {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(30px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(30px) rotate(-360deg);
+  }
+}
+
+/* Xoay nhẹ Mặt Trăng */
+@keyframes moon-rotate {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+
+/* CSS classes */
+.animate-moon-orbit {
+  animation: moon-orbit 15s linear infinite;
+}
+
+.animate-moon-rotate {
+  animation: moon-rotate 6s ease-in-out infinite;
 }
