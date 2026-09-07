@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
 import Header from '@/components/common/Header'
 import { Unica_One } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: 'Long Dev',
@@ -13,7 +13,6 @@ export const metadata: Metadata = {
 const unicaOne = Unica_One({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-unica",
 });
 
 export default function RootLayout({
@@ -30,6 +29,7 @@ export default function RootLayout({
             {children}
           </main>
         </Providers>
+        <SpeedInsights />
       </body>
     </html>
   )
