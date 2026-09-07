@@ -12,12 +12,14 @@ import PlanetEarth from '@/components/ui/PlanetEarth';
 import PlanetMars from '@/components/ui/PlanetMars';
 import PlanetSaturn from '@/components/ui/PlanetSaturn';
 import StarField from '@/components/ui/StarField';
+import Astronaut from '@/components/ui/Astronaut';
 import Moon from '@/components/ui/Moon';
 
 export default function HomePages() {
   return (
     <main className="min-h-screen relative">
       {/* Background Elements */}
+      <Astronaut />
       <Moon />
       <PlanetEarth />
       <PlanetMars />

@@ -71,7 +71,9 @@ export default function HeroSection() {
           {/* Thông tin chính */}
           <div className="flex-1 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 mb-1 flex-wrap">
-              <h1 className="text-4xl leading-tight md:text-5xl font-bold bg-gradient-to-r from-normal-red via-normal-yellow to-normal-magenta bg-clip-text text-transparent animate-gradient bg-[length:200%_200%] hover:scale-105 transition-transform duration-300">
+              <h1
+                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground transition-all duration-300 hover:text-normal-blue hover:-translate-y-0.5 hover:scale-105 inline-block"
+              >
                 Mai Dương Long
               </h1>
               <Sparkles className="w-6 h-6 text-normal-yellow animate-pulse-slow" />
@@ -94,12 +96,12 @@ export default function HeroSection() {
 
             <p className="text-primary-dim-fg max-w-2xl mx-auto md:mx-0 leading-relaxed">
               Với kinh nghiệm xây dựng các ứng dụng{' '}
-              <span className="text-normal-red font-medium hover:text-normal-red/80 transition-colors cursor-default relative group">
+              <span className="text-foreground font-medium hover:text-normal-red/80 transition-colors cursor-default relative group">
                 Web
                 <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-normal-red scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
               </span>{' '}
               và{' '}
-              <span className="text-normal-magenta font-medium hover:text-normal-magenta/80 transition-colors cursor-default relative group">
+              <span className="text-foreground font-medium hover:text-normal-magenta/80 transition-colors cursor-default relative group">
                 Mobile
                 <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-normal-magenta scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
               </span>
@@ -125,7 +127,7 @@ export default function HeroSection() {
         <div className="my-8 flex items-center gap-4">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-button-bg to-transparent" />
           <div className="flex items-center gap-2 px-4 py-1 bg-background/30 rounded-full border border-button-bg/30 shadow-border-md hover:shadow-border-lg transition-all duration-300 hover:scale-105 cursor-default">
-            <SiArchlinux className="w-4 h-4 text-normal-magenta animate-spin-slow" />
+            <SiArchlinux className="w-4 h-4 text-normal-magenta" />
             <span className="text-xs text-primary-dim-fg">Arch Linux</span>
             <span className="w-1.5 h-1.5 bg-normal-green rounded-full animate-pulse" />
           </div>

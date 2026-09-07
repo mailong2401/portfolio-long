@@ -11,7 +11,7 @@
   --popover-foreground: #f5eee6;
   
   /* Primary */
-  --primary: #F43E5C;
+  --primary: #3FC6DE;
   --primary-foreground: #2b2530;
   
   /* Secondary */
@@ -27,7 +27,7 @@
   --accent-foreground: #f5eee6;
   
   /* Destructive */
-  --destructive: #F43E5C;
+  --destructive: #3FC6DE;
   
   /* Border & Input & Ring */
   --border: #5c595e;
