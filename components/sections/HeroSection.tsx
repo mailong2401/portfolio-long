@@ -11,7 +11,7 @@ import PassionCard from '@/components/ui/PassionCard';
 export default function HeroSection() {
   return (
     <section id="about" className="min-h-screen flex items-center justify-center p-4">
-      <div className="max-w-7xl w-full border-2 bg-background/30 border-border rounded-2xl p-8 md:p-12 shadow-border-md hover:shadow-border-lg">
+      <div className="max-w-7xl w-full border-2 bg-background/50 border-border rounded-2xl p-8 md:p-12 shadow-border-md hover:shadow-border-lg">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
           <Avatar />
 
