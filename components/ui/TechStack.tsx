@@ -23,7 +23,7 @@ export default function TechStack() {
         {techs.map((tech, index) => (
           <div
             key={index}
-            className="flex items-center gap-2 px-3 py-1.5 bg-background/30 rounded-full border border-border/30 shadow-border-md hover:shadow-border-lg"
+            className="flex items-center gap-2 px-3 backdrop-blur-sm py-1.5 bg-background/15 rounded-full border border-border/30 shadow-border-md hover:shadow-border-lg"
           >
             <tech.icon className={`w-4 h-4 ${tech.color}`} />
             <span className="text-xs text-primary-dim-fg">{tech.name}</span>

@@ -1,0 +1,208 @@
+/* app/styles/components/planets.css */
+
+/* ===== Planet Mars Animations ===== */
+@keyframes mars-orbit {
+  0% {
+    transform: translate(-50%, -50%) translate(50px, 0px);
+  }
+  12.5% {
+    transform: translate(-50%, -50%) translate(42px, 32px);
+  }
+  25% {
+    transform: translate(-50%, -50%) translate(0px, 60px);
+  }
+  37.5% {
+    transform: translate(-50%, -50%) translate(-42px, 32px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(-50px, 0px);
+  }
+  62.5% {
+    transform: translate(-50%, -50%) translate(-42px, -32px);
+  }
+  75% {
+    transform: translate(-50%, -50%) translate(0px, -60px);
+  }
+  87.5% {
+    transform: translate(-50%, -50%) translate(42px, -32px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(50px, 0px);
+  }
+}
+
+@keyframes mars-rotate {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-3deg);
+  }
+}
+
+.animate-mars-orbit {
+  animation: mars-orbit 40s ease-in-out infinite;
+}
+
+.animate-mars-rotate {
+  animation: mars-rotate 15s ease-in-out infinite;
+}
+
+/* ===== Planet Earth Animations ===== */
+@keyframes earth-orbit {
+  0% {
+    transform: translate(-50%, -50%) translate(60px, 0px);
+  }
+  12.5% {
+    transform: translate(-50%, -50%) translate(51px, 22px);
+  }
+  25% {
+    transform: translate(-50%, -50%) translate(0px, 35px);
+  }
+  37.5% {
+    transform: translate(-50%, -50%) translate(-51px, 22px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(-60px, 0px);
+  }
+  62.5% {
+    transform: translate(-50%, -50%) translate(-51px, -22px);
+  }
+  75% {
+    transform: translate(-50%, -50%) translate(0px, -35px);
+  }
+  87.5% {
+    transform: translate(-50%, -50%) translate(51px, -22px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(60px, 0px);
+  }
+}
+
+@keyframes earth-rotate {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-3deg);
+  }
+}
+
+.animate-earth-orbit {
+  animation: earth-orbit 40s ease-in-out infinite;
+}
+
+.animate-earth-rotate {
+  animation: earth-rotate 10s ease-in-out infinite;
+}
+
+/* ===== Moon Animations ===== */
+@keyframes moon-orbit {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(30px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(30px) rotate(-360deg);
+  }
+}
+
+@keyframes moon-rotate {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+
+.animate-moon-orbit {
+  animation: moon-orbit 10s linear infinite;
+}
+
+.animate-moon-rotate {
+  animation: moon-rotate 6s ease-in-out infinite;
+}
+
+/* ===== Planet Saturn Animations ===== */
+@keyframes saturn-orbit {
+  0% {
+    transform: translate(-50%, -50%) translate(80px, 0px);
+  }
+  12.5% {
+    transform: translate(-50%, -50%) translate(68px, 40px);
+  }
+  25% {
+    transform: translate(-50%, -50%) translate(0px, 75px);
+  }
+  37.5% {
+    transform: translate(-50%, -50%) translate(-68px, 40px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(-80px, 0px);
+  }
+  62.5% {
+    transform: translate(-50%, -50%) translate(-68px, -40px);
+  }
+  75% {
+    transform: translate(-50%, -50%) translate(0px, -75px);
+  }
+  87.5% {
+    transform: translate(-50%, -50%) translate(68px, -40px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(80px, 0px);
+  }
+}
+
+@keyframes saturn-rotate {
+  0%, 100% {
+    transform: rotate(-2deg);
+  }
+  25% {
+    transform: rotate(4deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
+}
+
+.animate-saturn-orbit {
+  animation: saturn-orbit 100s ease-in-out infinite;
+}
+
+.animate-saturn-rotate {
+  animation: saturn-rotate 50s ease-in-out infinite;
+}

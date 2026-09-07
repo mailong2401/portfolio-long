@@ -1,0 +1,38 @@
+/* app/styles/base/dark.css */
+.dark {
+  /* Background & Foreground */
+  --background: #2b2530;
+  --foreground: #f5eee6;
+  
+  /* Card & Popover */
+  --card: #2b2530;
+  --card-foreground: #f5eee6;
+  --popover: #2b2530;
+  --popover-foreground: #f5eee6;
+  
+  /* Primary */
+  --primary: #F43E5C;
+  --primary-foreground: #2b2530;
+  
+  /* Secondary */
+  --secondary: #5c595e;
+  --secondary-foreground: #f5eee6;
+  
+  /* Muted */
+  --muted: #5c595e;
+  --muted-foreground: #8c8680;
+  
+  /* Accent */
+  --accent: #6b28de;
+  --accent-foreground: #f5eee6;
+  
+  /* Destructive */
+  --destructive: #F43E5C;
+  
+  /* Border & Input & Ring */
+  --border: #5c595e;
+  --input: #5c595e;
+  --ring: #7a3fde;
+  
+  --radius: 0.625rem;
+}

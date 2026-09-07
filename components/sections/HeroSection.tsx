@@ -54,13 +54,13 @@ export default function HeroSection() {
         {/* Passion & Sở thích */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <PassionCard
-            icon={<Sparkles className="w-5 h-5 text-primary-fg" />}
+            icon={<Sparkles className="w-5 h-5 text-foreground" />}
             title="Sáng tạo & Thẩm mỹ"
             description="Yêu thích sự sáng tạo trong thiết kế và luôn chú trọng đến tính thẩm mỹ trong từng sản phẩm."
             borderColor="border-normal-red"
           />
           <PassionCard
-            icon={<Palette className="w-5 h-5 text-primary-fg" />}
+            icon={<Palette className="w-5 h-5 text-foreground" />}
             title="Custom giao diện"
             description="Đam mê tùy chỉnh giao diện, biến những ý tưởng độc đáo thành trải nghiệm người dùng ấn tượng."
             borderColor="border-normal-magenta"
@@ -68,77 +68,6 @@ export default function HeroSection() {
         </div>
 
         <TerminalInfo />
-
-        {/* Action buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="#contact"
-            className="group flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-normal-red to-normal-magenta rounded-full font-medium text-primary-bg transition-all hover:scale-105 hover:shadow-lg hover:shadow-normal-red/30"
-          >
-            <Mail className="w-5 h-5" />
-            <span>Liên hệ với tôi</span>
-          </a>
-
-          <a
-            href="/resume.pdf"
-            download
-            className="group flex items-center gap-2 px-6 py-3 bg-button-bg/20 backdrop-blur border border-button-bg/30 rounded-full font-medium text-primary-fg transition-all hover:bg-button-bg/30 hover:scale-105"
-          >
-            <FileText className="w-5 h-5" />
-            <span>Tải CV của tôi</span>
-          </a>
-
-          <div className="flex gap-3">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-button-bg/20 rounded-full hover:bg-button-bg/30 transition-all hover:scale-110"
-              aria-label="GitHub"
-            >
-              <FaGithub className="w-5 h-5 text-primary-fg" />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-button-bg/20 rounded-full hover:bg-button-bg/30 transition-all hover:scale-110"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin className="w-5 h-5 text-normal-blue" />
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-button-bg/20 rounded-full hover:bg-button-bg/30 transition-all hover:scale-110"
-              aria-label="Facebook"
-            >
-              <FaFacebook className="w-5 h-5 text-normal-blue" />
-            </a>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-button-bg/20 rounded-full hover:bg-button-bg/30 transition-all hover:scale-110"
-              aria-label="YouTube"
-            >
-              <FaYoutube className="w-5 h-5 text-normal-red" />
-            </a>
-          </div>
-        </div>
-
-        {/* Footer với Arch logo */}
-        <div className="mt-8 text-center text-xs text-primary-dim-fg flex items-center justify-center gap-2">
-          <span>⚡</span>
-          <SiArchlinux className="w-3 h-3 text-normal-magenta/60" />
-          <span className="font-mono"># powered by Arch Linux</span>
-          <span>✦</span>
-          <span className="text-normal-magenta/50">runit</span>
-          <span>✦</span>
-          <span className="font-mono"># bspwm + polybar</span>
-          <span>⚡</span>
-        </div>
       </div>
     </section>
   );

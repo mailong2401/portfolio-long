@@ -1,0 +1,38 @@
+/* app/styles/base/root.css */
+:root {
+  /* Background & Foreground */
+  --background: #f5eee6;
+  --foreground: #2b2530;
+  
+  /* Card & Popover */
+  --card: #f5eee6;
+  --card-foreground: #2b2530;
+  --popover: #f5eee6;
+  --popover-foreground: #2b2530;
+  
+  /* Primary */
+  --primary: #DA103F;
+  --primary-foreground: #f5eee6;
+  
+  /* Secondary */
+  --secondary: #E8D8C9;
+  --secondary-foreground: #2b2530;
+  
+  /* Muted */
+  --muted: #E8D8C9;
+  --muted-foreground: #8c8680;
+  
+  /* Accent */
+  --accent: #b0a89e;
+  --accent-foreground: #2b2530;
+  
+  /* Destructive */
+  --destructive: #DA103F;
+  
+  /* Border & Input & Ring */
+  --border: #b0a89e;
+  --input: #b0a89e;
+  --ring: #6b28de;
+  
+  --radius: 0.625rem;
+}

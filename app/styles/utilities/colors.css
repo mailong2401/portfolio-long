@@ -1,0 +1,61 @@
+/* app/styles/utilities/colors.css */
+@layer utilities {
+  /* Custom text colors using theme */
+  .text-primary-bg { color: #f5eee6; }
+  .text-primary-dim-bg { color: #E8D8C9; }
+  .text-primary-fg { color: #2b2530; }
+  .text-primary-dim-fg { color: #8c8680; }
+  .text-primary-bright-fg { color: #5c595e; }
+  
+  .text-normal-red { color: #DA103F; }
+  .text-normal-green { color: #1EB980; }
+  .text-normal-yellow { color: #ffc338; }
+  .text-normal-blue { color: #67d4f1; }
+  .text-normal-magenta { color: #6b28de; }
+  .text-normal-cyan { color: #2eccca; }
+  
+  .text-bright-red { color: #F43E5C; }
+  .text-bright-green { color: #07DA8C; }
+  .text-bright-yellow { color: #ffcc57; }
+  .text-bright-blue { color: #3FC6DE; }
+  .text-bright-magenta { color: #7a3fde; }
+  .text-bright-cyan { color: #1EAEAE; }
+  
+  /* Custom background colors using theme */
+  .bg-primary-bg { background-color: #f5eee6; }
+  .bg-primary-dim-bg { background-color: #E8D8C9; }
+  .bg-primary-fg { background-color: #2b2530; }
+  .bg-primary-dim-fg { background-color: #8c8680; }
+  .bg-primary-bright-fg { background-color: #5c595e; }
+  .bg-button-bg { background-color: #b0a89e; }
+  .bg-button-bg-select { background-color: #9c8f83; }
+  
+  .bg-normal-red { background-color: #DA103F; }
+  .bg-normal-green { background-color: #1EB980; }
+  .bg-normal-yellow { background-color: #ffc338; }
+  .bg-normal-blue { background-color: #67d4f1; }
+  .bg-normal-magenta { background-color: #6b28de; }
+  .bg-normal-cyan { background-color: #2eccca; }
+  
+  .bg-bright-red { background-color: #F43E5C; }
+  .bg-bright-green { background-color: #07DA8C; }
+  .bg-bright-yellow { background-color: #ffcc57; }
+  .bg-bright-blue { background-color: #3FC6DE; }
+  .bg-bright-magenta { background-color: #7a3fde; }
+  .bg-bright-cyan { background-color: #1EAEAE; }
+  
+  /* Border colors using theme */
+  .border-normal-red { border-color: #DA103F; }
+  .border-normal-green { border-color: #1EB980; }
+  .border-normal-yellow { border-color: #ffc338; }
+  .border-normal-blue { border-color: #67d4f1; }
+  .border-normal-magenta { border-color: #6b28de; }
+  .border-normal-cyan { border-color: #2eccca; }
+  
+  .border-bright-red { border-color: #F43E5C; }
+  .border-bright-green { border-color: #07DA8C; }
+  .border-bright-yellow { border-color: #ffcc57; }
+  .border-bright-blue { border-color: #3FC6DE; }
+  .border-bright-magenta { border-color: #7a3fde; }
+  .border-bright-cyan { border-color: #1EAEAE; }
+}

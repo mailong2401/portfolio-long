@@ -1,0 +1,33 @@
+/* app/styles/utilities/scrollbar.css */
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--ring);
+  }
+}
+
+::view-transition-group(root) {
+  animation-duration: 0s !important;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none !important;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  will-change: clip-path;
+}

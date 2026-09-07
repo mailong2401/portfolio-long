@@ -1,0 +1,34 @@
+/* app/styles/utilities/shadows.css */
+@layer utilities {
+  .shadow-border-sm {
+    box-shadow: 2px 2px 0px var(--border);
+  }
+  
+  .shadow-border-md {
+    box-shadow: 4px 4px 0px var(--border);
+  }
+  
+  .shadow-border-lg {
+    box-shadow: 6px 6px 0px var(--border);
+  }
+  
+  .shadow-border-xl {
+    box-shadow: 8px 8px 0px var(--border);
+  }
+  
+  .shadow-primary-sm {
+    box-shadow: 2px 2px 0px var(--primary);
+  }
+  
+  .shadow-primary-md {
+    box-shadow: 4px 4px 0px var(--primary);
+  }
+  
+  .shadow-primary-lg {
+    box-shadow: 6px 6px 0px var(--primary);
+  }
+  
+  .shadow-primary-xl {
+    box-shadow: 8px 8px 0px var(--primary);
+  }
+}
