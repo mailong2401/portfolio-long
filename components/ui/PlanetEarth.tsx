@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function PlanetEarth() {
   return (
-    <div className="fixed right-1 md:right-16 top-1/9 pointer-events-none z-0 opacity-60">
+    <div className="fixed right-1 md:right-16 top-1/9 pointer-events-none z-0">
       {/* Container chính */}
       <div className="relative w-64 h-64 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]">
         {/* Quỹ đạo hiển thị */}

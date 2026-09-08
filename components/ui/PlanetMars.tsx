@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function PlanetMars() {
   return (
-    <div className="fixed left-8 md:left-16 top-1/5 md:top-1/7 pointer-events-none z-0 opacity-40">
+    <div className="fixed left-8 md:left-16 top-1/5 md:top-1/7 pointer-events-none z-0">
       {/* Container chính - nhỏ hơn Earth */}
       <div className="relative w-48 h-48 md:w-72 md:h-72 lg:w-[380px] lg:h-[380px]">
         {/* Quỹ đạo hiển thị */}

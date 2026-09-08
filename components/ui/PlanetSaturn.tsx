@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function PlanetSaturn() {
   return (
-    <div className="fixed left-2/3 md:left-4/5 -translate-x-1/2 top-3/5 pointer-events-none z-0 opacity-40">
+    <div className="fixed left-2/3 md:left-4/5 -translate-x-1/2 top-3/5 pointer-events-none z-0">
       {/* Container chính - hình chữ nhật theo tỷ lệ ảnh 760:312 */}
       <div className="relative w-[600px] h-[250px] md:w-[900px] md:h-[370px] lg:w-[1200px] lg:h-[493px]">
         {/* Quỹ đạo hiển thị - màu vàng đặc trưng của Sao Thổ */}
@@ -33,9 +33,6 @@ export default function PlanetSaturn() {
             <div className="absolute inset-[-70%] rounded-full bg-amber-500/5 blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
 
             {/* Orbital rings */}
-            <div className="absolute inset-[-25%] rounded-full border border-yellow-400/20 animate-rotate-slow" />
-            <div className="absolute inset-[-45%] rounded-full border border-orange-400/10 animate-rotate-slow" style={{ animationDirection: 'reverse', animationDuration: '50s' }} />
-            <div className="absolute inset-[-65%] rounded-full border border-yellow-300/5 animate-rotate-slow" style={{ animationDuration: '60s' }} />
           </div>
         </div>
       </div>

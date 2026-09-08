@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Moon() {
   return (
-    <div className="fixed right-8 md:right-16 top-1/8 md:top-1/6 pointer-events-none z-0  opacity-70">
+    <div className="fixed right-8 md:right-16 top-1/8 md:top-1/6 pointer-events-none z-0">
       {/* Container chính */}
       <div className="relative w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96">
         {/* Quỹ đạo hiển thị */}

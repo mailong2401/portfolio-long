@@ -102,7 +102,7 @@ export default function Header() {
 
   return (
     <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-8xl">
-      <nav className="relative bg-background/70 backdrop-blur-md border-2 border-border rounded-2xl px-4 py-3 shadow-border-md hover:shadow-border-lg transition-all duration-300">
+      <nav className="relative bg-background border-2 border-border rounded-2xl px-4 py-3 shadow-border-md hover:shadow-border-lg transition-all duration-300">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
