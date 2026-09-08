@@ -64,15 +64,15 @@ export default function SkillsSection() {
   return (
     <section id="skills" className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          <span className="bg-gradient-to-r from-normal-red via-normal-yellow to-normal-magenta bg-clip-text text-transparent animate-gradient bg-[length:200%_200%]">
+        <div className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h1 className="text-center text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground transition-all duration-300 hover:text-normal-blue hover:-translate-y-0.5 hover:scale-105 inline-block">
             Kỹ năng & Công nghệ
-          </span>
-        </h2>
+          </h1>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Programming Languages */}
-          <div className="bg-primary-fg/5 backdrop-blur-sm rounded-xl p-6 border border-border transition-all shadow-border-lg hover:shadow-border-md group">
+          <div className="bg-background/50 backdrop-blur-sm rounded-xl p-6 border border-border transition-all shadow-border-lg hover:shadow-border-md group">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-normal-red/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
                 <Languages className="w-5 h-5 text-normal-red" />
@@ -93,7 +93,7 @@ export default function SkillsSection() {
           </div>
 
           {/* Frameworks */}
-          <div className="bg-primary-fg/5 backdrop-blur-sm rounded-xl p-6 border border-border transition-all shadow-border-lg hover:shadow-border-md group">
+          <div className="bg-background/50 backdrop-blur-sm rounded-xl p-6 border border-border transition-all shadow-border-lg hover:shadow-border-md group">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-normal-cyan/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
                 <Code className="w-5 h-5 text-normal-cyan" />
@@ -114,7 +114,7 @@ export default function SkillsSection() {
           </div>
 
           {/* Tools & Database */}
-          <div className="bg-primary-fg/5 backdrop-blur-sm rounded-xl p-6 border border-border transition-all shadow-border-lg hover:shadow-border-md group">
+          <div className="bg-background/50 backdrop-blur-sm rounded-xl p-6 border border-border transition-all shadow-border-lg hover:shadow-border-md group">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-normal-magenta/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
                 <Wrench className="w-5 h-5 text-normal-magenta" />

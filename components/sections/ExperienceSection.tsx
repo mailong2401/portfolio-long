@@ -1,39 +1,47 @@
-'use client';
-
 const experiences = [
   {
-    company: 'Tech Corp',
-    position: 'Full Stack Developer',
-    period: '2022 - Present',
-    description: 'Xây dựng và phát triển các ứng dụng web và mobile sử dụng React, Next.js và Node.js.',
-    technologies: ['React', 'Next.js', 'Node.js', 'TypeScript']
-  },
-  {
-    company: 'Startup Studio',
-    position: 'Mobile Developer',
-    period: '2021 - 2022',
-    description: 'Phát triển ứng dụng mobile đa nền tảng sử dụng Flutter và React Native.',
-    technologies: ['Flutter', 'React Native', 'Dart', 'Firebase']
+    company: 'Hitek Group',
+    position: 'Thực tập sinh',
+    period: '10/2025 - 1/2026',
+    description: 'Xây dựng và tự thiết kế giao diện website Hitek Flycam và Hitek bằng nextjs và supabase',
+    technologies: ['Next.js', 'Node.js', 'TypeScript', 'Supabase'],
+    logo: 'https://hitekgroup.vn/wp-content/uploads/2022/03/Logo-HITEK.png'
   }
 ];
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-16 px-4 bg-primary-dim-bg/10">
+    <section id="experience" className="py-16 px-4 ">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          <span className="bg-gradient-to-r from-normal-red via-normal-yellow to-normal-magenta bg-clip-text text-transparent">
-            Kinh nghiệm làm việc
-          </span>
-        </h2>
+        <div className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h1 className="text-center text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground transition-all duration-300 hover:text-normal-blue hover:-translate-y-0.5 hover:scale-105 inline-block">
+            Kỹ năng & Công nghệ
+          </h1>
+        </div>
 
         <div className="space-y-6">
           {experiences.map((exp, index) => (
-            <div key={index} className="bg-primary-dim-bg/20 rounded-xl p-6 border border-border/30 hover:border-normal-blue/50 transition-all shadow-border-sm hover:shadow-border-md">
+            <div key={index} className="bg-background/50 backdrop-blur-sm rounded-xl p-6 border border-border/30 transition-all shadow-border-sm hover:shadow-border-md">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold text-primary-fg">{exp.position}</h3>
-                  <p className="text-normal-blue font-medium">{exp.company}</p>
+                <div className="flex items-center gap-4">
+                  {/* Logo */}
+                  {exp.logo && (
+                    <div className="flex-shrink-0">
+                      <img
+                        src={exp.logo}
+                        alt={`${exp.company} logo`}
+                        className="w-12 h-12 object-contain rounded-lg bg-white/5 p-1 border border-border/30"
+                        onError={(e) => {
+                          // Fallback nếu ảnh không load được
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  )}
+                  <div>
+                    <h3 className="text-xl font-semibold text-primary-bg">{exp.position}</h3>
+                    <p className="text-normal-blue font-medium">{exp.company}</p>
+                  </div>
                 </div>
                 <span className="text-primary-dim-fg text-sm mt-2 md:mt-0">{exp.period}</span>
               </div>
