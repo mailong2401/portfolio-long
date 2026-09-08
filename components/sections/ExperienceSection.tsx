@@ -43,7 +43,7 @@ export default function ExperienceSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-3xl md:text-4xl font-bold text-center mb-12">
           <h1 className="text-center text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground transition-all duration-300 hover:text-normal-blue hover:-translate-y-0.5 hover:scale-105 inline-block">
-            Kỹ năng & Công nghệ
+            Kinh nghiệm làm việc
           </h1>
         </div>
 
