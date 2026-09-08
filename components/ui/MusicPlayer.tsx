@@ -22,6 +22,13 @@ export default function MusicPlayer() {
   const tracks: Track[] = [
     {
       id: 1,
+      title: 'STAY',
+      artist: 'The Kid LAROI,Justin Bieber',
+      duration: 3072,
+      src: '/music/stay.mp3',
+    },
+    {
+      id: 2,
       title: 'Way Back Home',
       artist: 'SHAUN ft. Conor Maynard',
       duration: 3072,
