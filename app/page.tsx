@@ -18,13 +18,14 @@ export default function HomePages() {
   return (
     <main className="min-h-screen relative">
       {/* Background Elements */}
-      <Astronaut />
-      <Moon />
-      <PlanetEarth />
-      <PlanetMars />
-      <PlanetSaturn />
-      <StarField />
-
+      <div className="opacity-70">
+        <Astronaut />
+        <Moon />
+        <PlanetEarth />
+        <PlanetMars />
+        <PlanetSaturn />
+        <StarField />
+      </div>
       {/* Content */}
       <div className="relative z-10">
         <HeroSection />
