@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { ExternalLink, Star, GitFork, AlertCircle, X, Globe, Expand } from 'lucide-react';
 import IconButton from '@/components/ui/IconButton';
+import ScrollAnimation from '@/components/ui/ScrollAnimation';
 
 interface Project {
   title: string;
@@ -32,7 +33,7 @@ const projects: Project[] = [
     title: 'dotfiles hyprland',
     description: 'A complete Hyprland(Lua) configuration with Quickshell, custom themes, and essential tools for a beautiful Wayland desktop experience.',
     tech: ['Lua', 'Shell', 'Css'],
-    link: 'https://github.commailong2401/dotfiles-hyprland',
+    link: 'https://github.com/mailong2401/dotfiles-hyprland',
     image: '/images/projects/dotfiles.png',
     stars: 100,
     forks: 7,
@@ -100,120 +101,127 @@ export default function ProjectsSection() {
   return (
     <section id="opensource" className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="text-3xl md:text-4xl font-bold text-center mb-12">
-          <h1 className="text-center text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground transition-all duration-300 hover:text-normal-blue hover:-translate-y-0.5 hover:scale-105 inline-block">
-            Kỹ năng & Công nghệ
-          </h1>
-        </div>
+        {/* Title */}
+        <ScrollAnimation direction="up" delay={0.1} duration={0.6}>
+          <div className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h1 className="text-center text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground transition-all duration-300 hover:text-normal-blue hover:-translate-y-0.5 hover:scale-105 inline-block">
+              Dự án tiêu biểu
+            </h1>
+          </div>
+        </ScrollAnimation>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <div
+            <ScrollAnimation
               key={index}
-              className="bg-background/50 backdrop-blur-sm rounded-xl overflow-hidden border border-border/30 shadow-border-lg hover:shadow-border-md transition-all duration-300 group flex flex-col"
+              direction={index % 2 === 0 ? 'left' : 'right'}
+              delay={0.2 + index * 0.15}
+              duration={0.6}
             >
-              {/* Project Image - Click để xem lớn */}
-              <div
-                className="relative w-full aspect-video overflow-hidden bg-background/30 cursor-pointer"
-                onClick={() => openLightbox(project.image, project.title)}
-              >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                  priority={index < 2}
-                />
-                {/* Overlay khi hover - sử dụng icon Expand */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 p-3 rounded-full backdrop-blur-sm">
-                    <Expand className="w-6 h-6 text-white" />
+              <div className="bg-background/50 backdrop-blur-sm rounded-xl overflow-hidden border border-border/30 shadow-border-lg hover:shadow-border-md transition-all duration-300 group flex flex-col h-full">
+                {/* Project Image - Click để xem lớn */}
+                <div
+                  className="relative w-full aspect-video overflow-hidden bg-background/30 cursor-pointer"
+                  onClick={() => openLightbox(project.image, project.title)}
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    priority={index < 2}
+                  />
+                  {/* Overlay khi hover - sử dụng icon Expand */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 p-3 rounded-full backdrop-blur-sm">
+                      <Expand className="w-6 h-6 text-white" />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="p-6 flex flex-col flex-1">
-                {/* Header */}
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-2xl font-semibold text-foreground group-hover:text-normal-red transition-colors line-clamp-1">
-                    {project.title}
-                  </h3>
-                  <div className="flex items-center gap-2 flex-shrink-0">
-                    {/* Deploy Link - nếu có */}
-                    {project.deployLink && (
+                <div className="p-6 flex flex-col flex-1">
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-2xl font-semibold text-foreground group-hover:text-normal-red transition-colors line-clamp-1">
+                      {project.title}
+                    </h3>
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                      {/* Deploy Link - nếu có */}
+                      {project.deployLink && (
+                        <a
+                          href={project.deployLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary-dim-fg hover:text-normal-green transition-colors"
+                          title="View live demo"
+                        >
+                          <Globe className="w-5 h-5" />
+                        </a>
+                      )}
                       <a
-                        href={project.deployLink}
+                        href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-primary-dim-fg hover:text-normal-green transition-colors"
-                        title="View live demo"
+                        className="text-primary-dim-fg hover:text-normal-blue transition-colors"
+                        title="View source code"
                       >
-                        <Globe className="w-5 h-5" />
+                        <ExternalLink className="w-5 h-5" />
                       </a>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-primary-dim-fg mb-4 text-sm flex-1 line-clamp-2">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech, techIndex) => (
+                      <div
+                        key={techIndex}
+                        className="flex items-center gap-2 px-3 py-2 bg-background/50 rounded-full border border-border transition-all duration-300 hover:scale-105 hover:shadow-md"
+                      >
+                        <span className="text-sm text-primary-dim-fg">{tech}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Stats */}
+                  <div className="flex items-center gap-4 pt-3 border-t border-border/30">
+                    {project.stars !== undefined && (
+                      <div className="flex items-center gap-1.5 text-foreground/60 hover:text-normal-yellow transition-colors">
+                        <Star size={14} className="fill-current" />
+                        <span className="text-sm font-medium">{formatNumber(project.stars)}</span>
+                      </div>
                     )}
+
+                    {project.forks !== undefined && (
+                      <div className="flex items-center gap-1.5 text-foreground/60 hover:text-normal-blue transition-colors">
+                        <GitFork size={14} />
+                        <span className="text-sm font-medium">{formatNumber(project.forks)}</span>
+                      </div>
+                    )}
+
+                    {project.issues !== undefined && (
+                      <div className="flex items-center gap-1.5 text-foreground/60 hover:text-normal-red transition-colors">
+                        <AlertCircle size={14} />
+                        <span className="text-sm font-medium">{formatNumber(project.issues)}</span>
+                      </div>
+                    )}
+
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary-dim-fg hover:text-normal-blue transition-colors"
-                      title="View source code"
+                      className="ml-auto text-xs text-foreground/40 hover:text-primary transition-colors"
                     >
-                      <ExternalLink className="w-5 h-5" />
+                      View repo →
                     </a>
                   </div>
                 </div>
-
-                {/* Description */}
-                <p className="text-primary-dim-fg mb-4 text-sm flex-1 line-clamp-2">
-                  {project.description}
-                </p>
-
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech, techIndex) => (
-                    <div
-                      key={techIndex}
-                      className="flex items-center gap-2 px-3 py-2 bg-background/50 rounded-full border border-border transition-all duration-300 hover:scale-105 hover:shadow-md"
-                    >
-                      <span className="text-sm text-primary-dim-fg">{tech}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Stats */}
-                <div className="flex items-center gap-4 pt-3 border-t border-border/30">
-                  {project.stars !== undefined && (
-                    <div className="flex items-center gap-1.5 text-foreground/60 hover:text-normal-yellow transition-colors">
-                      <Star size={14} className="fill-current" />
-                      <span className="text-sm font-medium">{formatNumber(project.stars)}</span>
-                    </div>
-                  )}
-
-                  {project.forks !== undefined && (
-                    <div className="flex items-center gap-1.5 text-foreground/60 hover:text-normal-blue transition-colors">
-                      <GitFork size={14} />
-                      <span className="text-sm font-medium">{formatNumber(project.forks)}</span>
-                    </div>
-                  )}
-
-                  {project.issues !== undefined && (
-                    <div className="flex items-center gap-1.5 text-foreground/60 hover:text-normal-red transition-colors">
-                      <AlertCircle size={14} />
-                      <span className="text-sm font-medium">{formatNumber(project.issues)}</span>
-                    </div>
-                  )}
-
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ml-auto text-xs text-foreground/40 hover:text-primary transition-colors"
-                  >
-                    View repo →
-                  </a>
-                </div>
               </div>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>
