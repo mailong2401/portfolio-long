@@ -112,7 +112,7 @@ export default function TerminalInfo() {
               {systemInfo.map((info, idx) => (
                 <p
                   key={idx}
-                  className={`transition-all duration-300 hover:text-primary-fg cursor-default flex items-center gap-2 ${idx < textIndex - 1 ? 'opacity-100' : 'opacity-0'
+                  className={`transition-all duration-300 hover:text-foreground cursor-default flex items-center gap-2 ${idx < textIndex - 1 ? 'opacity-100' : 'opacity-0'
                     }`}
                   style={{
                     transitionDelay: `${idx * 100}ms`,

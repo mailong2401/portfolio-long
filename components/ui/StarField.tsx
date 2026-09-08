@@ -18,7 +18,7 @@ export default function StarField() {
     setMounted(true);
 
     // Tạo ngôi sao 1 lần duy nhất
-    const numStars = 100; // tăng/giảm tùy ý
+    const numStars = 50; // tăng/giảm tùy ý
     const stars: Star[] = [];
     for (let i = 0; i < numStars; i++) {
       stars.push({
