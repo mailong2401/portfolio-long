@@ -22,13 +22,20 @@ export default function MusicPlayer() {
   const tracks: Track[] = [
     {
       id: 1,
+      title: 'Nơi Này Có Anh',
+      artist: 'Sơn Tùng M-TP',
+      duration: 3072,
+      src: '/music/noi-nay-co-anh.mp3',
+    },
+    {
+      id: 2,
       title: 'STAY',
       artist: 'The Kid LAROI,Justin Bieber',
       duration: 3072,
       src: '/music/stay.mp3',
     },
     {
-      id: 2,
+      id: 3,
       title: 'Way Back Home',
       artist: 'SHAUN ft. Conor Maynard',
       duration: 3072,
