@@ -1,11 +1,39 @@
+import {
+  SiNextdotjs,
+  SiNodedotjs,
+  SiTypescript,
+  SiSupabase
+} from 'react-icons/si';
+
 const experiences = [
   {
     company: 'Hitek Group',
     position: 'Thực tập sinh',
     period: '10/2025 - 1/2026',
     description: 'Xây dựng và tự thiết kế giao diện website Hitek Flycam và Hitek bằng nextjs và supabase',
-    technologies: ['Next.js', 'Node.js', 'TypeScript', 'Supabase'],
-    logo: 'https://hitekgroup.vn/wp-content/uploads/2022/03/Logo-HITEK.png'
+    logo: 'https://hitekgroup.vn/wp-content/uploads/2022/03/Logo-HITEK.png',
+    technologies: [
+      {
+        name: 'Next.js',
+        icon: SiNextdotjs,
+        color: 'text-white'
+      },
+      {
+        name: 'Node.js',
+        icon: SiNodedotjs,
+        color: 'text-green-500'
+      },
+      {
+        name: 'TypeScript',
+        icon: SiTypescript,
+        color: 'text-blue-600'
+      },
+      {
+        name: 'Supabase',
+        icon: SiSupabase,
+        color: 'text-emerald-400'
+      }
+    ]
   }
 ];
 
@@ -32,25 +60,30 @@ export default function ExperienceSection() {
                         alt={`${exp.company} logo`}
                         className="w-12 h-12 object-contain rounded-lg bg-white/5 p-1 border border-border/30"
                         onError={(e) => {
-                          // Fallback nếu ảnh không load được
                           e.currentTarget.style.display = 'none';
                         }}
                       />
                     </div>
                   )}
                   <div>
-                    <h3 className="text-xl font-semibold text-primary-bg">{exp.position}</h3>
+                    <h3 className="text-xl font-semibold text-foreground">{exp.position}</h3>
                     <p className="text-normal-blue font-medium">{exp.company}</p>
                   </div>
                 </div>
                 <span className="text-primary-dim-fg text-sm mt-2 md:mt-0">{exp.period}</span>
               </div>
               <p className="text-primary-dim-fg mb-4">{exp.description}</p>
+
+              {/* Technologies với icon */}
               <div className="flex flex-wrap gap-2">
                 {exp.technologies.map((tech, techIndex) => (
-                  <span key={techIndex} className="px-3 py-1 bg-background/50 rounded-full text-xs text-primary-fg border border-border/30">
-                    {tech}
-                  </span>
+                  <div
+                    key={techIndex}
+                    className="flex items-center gap-2 px-3 backdrop-blur-sm py-1.5 bg-background/15 rounded-full border border-border/30 shadow-border-md hover:shadow-border-lg transition-all hover:scale-105"
+                  >
+                    <tech.icon className={`w-4 h-4 ${tech.color}`} />
+                    <span className="text-xs text-primary-dim-fg">{tech.name}</span>
+                  </div>
                 ))}
               </div>
             </div>
