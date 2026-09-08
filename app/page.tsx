@@ -5,7 +5,6 @@ import SkillsSection from '@/components/sections/SkillsSection';
 import ExperienceSection from '@/components/sections/ExperienceSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import AchievementsSection from '@/components/sections/AchievementsSection';
-import BlogsSection from '@/components/sections/BlogsSection';
 import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/layout/Footer';
 import PlanetEarth from '@/components/ui/PlanetEarth';
