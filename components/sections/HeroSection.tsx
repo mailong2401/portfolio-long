@@ -80,7 +80,6 @@ export default function HeroSection() {
               <div className="relative">
                 <Avatar />
               </div>
-              <div className="absolute -top-2 -right-2 w-3 h-3 bg-normal-green rounded-full animate-ping" />
             </div>
           </ScrollAnimation>
 

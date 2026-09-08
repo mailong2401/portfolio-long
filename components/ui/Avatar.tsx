@@ -19,8 +19,6 @@ export default function Avatar() {
       <div className="absolute -bottom-1 -right-2 bg-primary-bg border-2 border-button-bg rounded-full p-2 shadow-lg shadow-primary-fg/10 group-hover:shadow-primary-fg/20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
         <Terminal className="w-8 h-8 text-primary-fg group-hover:text-normal-magenta transition-colors duration-300" />
       </div>
-      <div className="absolute -top-1 -right-1 w-3 h-3 bg-normal-green rounded-full animate-ping shadow-lg shadow-normal-green/50" />
-      <div className="absolute -top-1 -right-1 w-3 h-3 bg-normal-green rounded-full shadow-lg shadow-normal-green/50" />
     </div>
   );
 }

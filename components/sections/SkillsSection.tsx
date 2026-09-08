@@ -77,7 +77,7 @@ export default function SkillsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Programming Languages */}
           <ScrollAnimation direction="left" delay={0.2} duration={0.6}>
-            <div className="bg-background/50 backdrop-blur-sm rounded-xl p-6 border border-border transition-all shadow-border-lg hover:shadow-border-md group h-full">
+            <div className="bg-background/50 rounded-xl p-6 border border-border transition-all shadow-border-lg hover:shadow-border-md group h-full">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-normal-red/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <Languages className="w-5 h-5 text-normal-red" />
@@ -100,7 +100,7 @@ export default function SkillsSection() {
 
           {/* Frameworks */}
           <ScrollAnimation direction="up" delay={0.3} duration={0.6}>
-            <div className="bg-background/50 backdrop-blur-sm rounded-xl p-6 border border-border transition-all shadow-border-lg hover:shadow-border-md group h-full">
+            <div className="bg-background/50 rounded-xl p-6 border border-border transition-all shadow-border-lg hover:shadow-border-md group h-full">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-normal-cyan/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <Code className="w-5 h-5 text-normal-cyan" />
@@ -123,7 +123,7 @@ export default function SkillsSection() {
 
           {/* Tools & Database */}
           <ScrollAnimation direction="right" delay={0.4} duration={0.6}>
-            <div className="bg-background/50 backdrop-blur-sm rounded-xl p-6 border border-border transition-all shadow-border-lg hover:shadow-border-md group h-full">
+            <div className="bg-background/50 rounded-xl p-6 border border-border transition-all shadow-border-lg hover:shadow-border-md group h-full">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-normal-magenta/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <Wrench className="w-5 h-5 text-normal-magenta" />

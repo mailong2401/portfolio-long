@@ -45,7 +45,7 @@ export default function ExperienceSection() {
               delay={0.2 + index * 0.15}
               duration={0.6}
             >
-              <div className="bg-background/50 backdrop-blur-sm rounded-xl p-6 border border-border/30 transition-all shadow-border-sm hover:shadow-border-md hover:border-normal-blue/30 group">
+              <div className="bg-background/50 rounded-xl p-6 border border-border/30 transition-all shadow-border-sm hover:shadow-border-md hover:border-normal-blue/30 group">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div className="flex items-center gap-4">
                     {/* Logo */}

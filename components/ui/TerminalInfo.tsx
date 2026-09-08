@@ -57,7 +57,7 @@ export default function TerminalInfo() {
   return (
     <div className="group relative">
       {/* Glow effect */}
-      <div className="relative bg-primary-fg/5 backdrop-blur-sm rounded-xl p-4 font-mono text-sm border border-button-bg/30 shadow-border-md hover:shadow-border-lg transition-all duration-300">
+      <div className="relative bg-primary-fg/5 rounded-xl p-4 font-mono text-sm border border-button-bg/30 shadow-border-md hover:shadow-border-lg transition-all duration-300">
         {/* Window controls */}
         <div className="flex items-center gap-2 text-primary-dim-fg mb-3">
           <div className="flex gap-1.5">

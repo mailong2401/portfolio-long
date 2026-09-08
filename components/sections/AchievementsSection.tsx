@@ -77,7 +77,7 @@ export default function AchievementsSection() {
 
                   {/* Nội dung */}
                   <div className={`md:w-1/2 flex ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
-                    <div className="bg-background/50 backdrop-blur-sm rounded-xl p-6 border border-border/30 transition-all shadow-border-sm hover:shadow-border-md hover:border-normal-blue/30 w-full max-w-md">
+                    <div className="bg-background/50 rounded-xl p-6 border border-border/30 transition-all shadow-border-sm hover:shadow-border-md hover:border-normal-blue/30 w-full max-w-md">
                       <div className="flex items-center gap-3 mb-2">
                         <div className={`p-2 rounded-lg bg-background/50 ${achievement.color}`}>
                           {achievement.icon}
@@ -100,19 +100,19 @@ export default function AchievementsSection() {
         {/* Stats Cards - Hiển thị thêm số liệu tổng quan */}
         <ScrollAnimation direction="up" delay={0.8} duration={0.6}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            <div className="text-center p-6 bg-background/50 backdrop-blur-sm rounded-xl border border-border/30 hover:border-normal-yellow/50 transition-all shadow-border-sm hover:shadow-border-md group">
+            <div className="text-center p-6 bg-background/50 rounded-xl border border-border/30 hover:border-normal-yellow/50 transition-all shadow-border-sm hover:shadow-border-md group">
               <Award className="w-12 h-12 text-normal-yellow mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
               <h3 className="text-3xl font-bold text-foreground">10+</h3>
               <p className="text-primary-dim-fg">Dự án hoàn thành</p>
             </div>
-            <div className="text-center p-6 bg-background/50 backdrop-blur-sm rounded-xl border border-border/30 hover:border-normal-green/50 transition-all shadow-border-sm hover:shadow-border-md group">
+            <div className="text-center p-6 bg-background/50 rounded-xl border border-border/30 hover:border-normal-green/50 transition-all shadow-border-sm hover:shadow-border-md group">
               <Rocket className="w-12 h-12 text-normal-green mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
               <h3 className="text-3xl font-bold text-foreground">2+</h3>
               <p className="text-primary-dim-fg">Startup hợp tác</p>
             </div>
-            <div className="text-center p-6 bg-background/50 backdrop-blur-sm rounded-xl border border-border/30 hover:border-normal-magenta/50 transition-all shadow-border-sm hover:shadow-border-md group">
+            <div className="text-center p-6 bg-background/50 rounded-xl border border-border/30 hover:border-normal-magenta/50 transition-all shadow-border-sm hover:shadow-border-md group">
               <GitBranch className="w-12 h-12 text-normal-magenta mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-              <h3 className="text-3xl font-bold text-foreground">350+</h3>
+              <h3 className="text-3xl font-bold text-foreground">450+</h3>
               <p className="text-primary-dim-fg">Stars trên GitHub</p>
             </div>
           </div>

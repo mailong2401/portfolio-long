@@ -118,7 +118,7 @@ export default function ProjectsSection() {
               delay={0.2 + index * 0.15}
               duration={0.6}
             >
-              <div className="bg-background/50 backdrop-blur-sm rounded-xl overflow-hidden border border-border/30 shadow-border-lg hover:shadow-border-md transition-all duration-300 group flex flex-col h-full">
+              <div className="bg-background/50 rounded-xl overflow-hidden border border-border/30 shadow-border-lg hover:shadow-border-md transition-all duration-300 group flex flex-col h-full">
                 {/* Project Image - Click để xem lớn */}
                 <div
                   className="relative w-full aspect-video overflow-hidden bg-background/30 cursor-pointer"
