@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "about": "Giới thiệu",
+    "skills": "Kỹ năng",
+    "experience": "Kinh nghiệm làm việc",
+    "opensource": "Mã nguồn mở",
+    "achievements": "Thành tích",
+    "blogs": "Bài viết",
+    "contact": "Liên hệ"
+  },
+  "hero": {
+    "title": "Mai Dương Long",
+    "role": "Lập trình viên",
+    "roles": [
+      "Lập trình viên sáng tạo",
+      "Full Stack Developer",
+      "Đam mê UI/UX",
+      "Người dùng Arch Linux",
+      "Đóng góp mã nguồn mở"
+    ],
+    "description1": "Với kinh nghiệm xây dựng các ứng dụng ",
+    "web": "Web",
+    "description2": " và ",
+    "mobile": "Mobile",
+    "description3": " sử dụng JavaScript / Reactjs / Nodejs / React Native cùng các thư viện và framework hiện đại khác."
+  },
+  "passion": {
+    "creativity": "Sáng tạo & Thẩm mỹ",
+    "creativityDesc": "Yêu thích sự sáng tạo trong thiết kế và luôn chú trọng đến tính thẩm mỹ trong từng sản phẩm.",
+    "customUI": "Custom giao diện",
+    "customUIDesc": "Đam mê tùy chỉnh giao diện, biến những ý tưởng độc đáo thành trải nghiệm người dùng ấn tượng."
+  },
+  "skills": {
+    "title": "Kỹ năng & Công nghệ",
+    "languages": "Ngôn ngữ",
+    "frameworks": "Framework",
+    "tools": "Tools & DB"
+  },
+  "experience": {
+    "title": "Kinh nghiệm làm việc",
+    "company": "Hitek Group",
+    "position": "Thực tập sinh",
+    "period": "10/2025 - 1/2026",
+    "description": "Xây dựng và tự thiết kế giao diện website Hitek Flycam và Hitek bằng Next.js và Supabase."
+  },
+  "projects": {
+    "title": "Dự án tiêu biểu",
+    "cartoonShell": {
+      "title": "Cartoon Shell",
+      "description": "Cartoon Shell là một panel Wayland hiện đại được xây dựng hoàn toàn bằng QuickShell (QML) dành riêng cho trình quản lý cửa sổ Hyprland."
+    },
+    "dotfiles": {
+      "title": "dotfiles hyprland",
+      "description": "Cấu hình hoàn chỉnh Hyprland (Lua) với Quickshell, giao diện tùy chỉnh và các công cụ cần thiết cho trải nghiệm Wayland đẹp mắt."
+    },
+    "hitekFlycam": {
+      "title": "Hitek Flycam",
+      "description": "Website landing page cho doanh nghiệp Hitek Flycam thiết kế theo phong cách đơn giản."
+    },
+    "billiard": {
+      "title": "Billiard Website",
+      "description": "Website quản lý billiard thiết kế theo phong cách tối giản hiện đại với công nghệ realtime tính giá tiền."
+    },
+    "vietgreen": {
+      "title": "VietGreen",
+      "description": "Website VietGreen Data & AI quy mô quốc gia nhằm thu thập, chuẩn hóa, phân tích và khai thác dữ liệu về sản xuất xanh và tiêu dùng bền vững tại Việt Nam."
+    }
+  },
+  "achievements": {
+    "title": "Thành tích & Cột mốc",
+    "items": [
+      {
+        "year": "2024",
+        "title": "Top 12 Code War Hutech",
+        "description": "Tham gia Code War 2024 Hutech"
+      },
+      {
+        "year": "2022",
+        "title": "Học sinh giỏi cấp tỉnh",
+        "description": "Tham gia học sinh giỏi cấp tỉnh môn tin học"
+      },
+      {
+        "year": "2020",
+        "title": "Bắt đầu hành trình lập trình",
+        "description": "Bắt đầu học lập trình và xây dựng các dự án đầu tay với JavaScript và React."
+      }
+    ],
+    "stats": {
+      "projects": "Dự án hoàn thành",
+      "startups": "Startup hợp tác",
+      "stars": "Stars trên GitHub"
+    }
+  },
+  "contact": {
+    "title": "Liên hệ với tôi",
+    "description": "Bạn có dự án cần hợp tác? Hãy để lại lời nhắn, tôi sẽ phản hồi sớm nhất có thể.",
+    "sendEmail": "Gửi email",
+    "connectWithMe": "Kết nối với tôi qua mạng xã hội",
+    "available": "Sẵn sàng làm việc",
+    "openToCollaborate": "Sẵn sàng hợp tác",
+    "basedIn": "Đến từ Việt Nam",
+    "email": "gtmailong@gmail.com"
+  }
+}

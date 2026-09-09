@@ -1,5 +1,3 @@
-'use client';
-
 import { Code, Wrench, Languages } from 'lucide-react';
 import {
   FaFlutter,
@@ -29,6 +27,7 @@ import {
 } from 'react-icons/si';
 import { TbBrandCSharp } from "react-icons/tb";
 import ScrollAnimation from '@/components/ui/ScrollAnimation';
+import { useLanguage } from '@/app/contexts/LanguageContext';
 
 const skills = {
   languages: [
@@ -63,13 +62,15 @@ const skills = {
 };
 
 export default function SkillsSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="skills" className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <ScrollAnimation direction="up" delay={0.1} duration={0.6}>
           <div className="text-3xl md:text-4xl font-bold text-center mb-12">
             <h1 className="text-center text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground transition-all duration-300 hover:text-normal-blue hover:-translate-y-0.5 hover:scale-105 inline-block">
-              Kỹ năng & Công nghệ
+              {t('skills.title')}
             </h1>
           </div>
         </ScrollAnimation>
@@ -82,7 +83,7 @@ export default function SkillsSection() {
                 <div className="p-2 bg-normal-red/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <Languages className="w-5 h-5 text-normal-red" />
                 </div>
-                <h3 className="text-xl font-semibold text-normal-red">Ngôn ngữ</h3>
+                <h3 className="text-xl font-semibold text-normal-red">{t('skills.languages')}</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {skills.languages.map((skill, index) => (
@@ -105,7 +106,7 @@ export default function SkillsSection() {
                 <div className="p-2 bg-normal-cyan/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <Code className="w-5 h-5 text-normal-cyan" />
                 </div>
-                <h3 className="text-xl font-semibold text-normal-cyan">Framework</h3>
+                <h3 className="text-xl font-semibold text-normal-cyan">{t('skills.frameworks')}</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {skills.frameworks.map((skill, index) => (
@@ -128,7 +129,7 @@ export default function SkillsSection() {
                 <div className="p-2 bg-normal-magenta/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <Wrench className="w-5 h-5 text-normal-magenta" />
                 </div>
-                <h3 className="text-xl font-semibold text-normal-magenta">Tools & DB</h3>
+                <h3 className="text-xl font-semibold text-normal-magenta">{t('skills.tools')}</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {skills.tools.map((skill, index) => (

@@ -1,18 +1,19 @@
+// components/layout/Header.tsx
 'use client'
 
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
-import {
-  Menu,
-  X,
-} from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import IconButton from '@/components/ui/IconButton'
 import NavItem from '@/components/common/NavItem'
 import ThemeToggle from '@/components/common/ThemeToggle'
 import MobileDropdown from '@/components/ui/MobileDropdown'
 import MusicPlayer from '@/components/ui/MusicPlayer'
+import LanguageSelector from '@/components/common/LanguageSelector'
+import { useLanguage } from '@/app/contexts/LanguageContext'
 
 export default function Header() {
+  const { t } = useLanguage() // 👈 Lấy hàm translate
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
@@ -34,7 +35,6 @@ export default function Header() {
             const id = entry.target.id
             setActiveSection(`#${id}`)
 
-            // Cập nhật URL hash
             const url = new URL(window.location.href)
             url.hash = `#${id}`
             window.history.pushState({}, '', url.toString())
@@ -68,35 +68,14 @@ export default function Header() {
   }, [])
 
   const navLinks = [
-    {
-      href: '#about',
-      label: 'About'
-    },
-    {
-      href: '#skills',
-      label: 'Skills'
-    },
-    {
-      href: '#experience',
-      label: 'Work Experiences'
-    },
-    {
-      href: '#opensource',
-      label: 'Open Source'
-    },
-    {
-      href: '#achievements',
-      label: 'Achievements'
-    },
-    {
-      href: '#blogs',
-      label: 'Blogs'
-    },
-    {
-      href: '#contact',
-      label: 'Contact me'
-    },
-  ];
+    { href: '#about', label: t('nav.about') },
+    { href: '#skills', label: t('nav.skills') },
+    { href: '#experience', label: t('nav.experience') },
+    { href: '#opensource', label: t('nav.opensource') },
+    { href: '#achievements', label: t('nav.achievements') },
+    { href: '#blogs', label: t('nav.blogs') },
+    { href: '#contact', label: t('nav.contact') },
+  ]
 
   if (!mounted) return null
 
@@ -134,13 +113,9 @@ export default function Header() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-2.5 flex-shrink-0">
-            {/* Music Player - nằm bên trái ThemeToggle */}
             <MusicPlayer />
-
-            {/* Theme Toggle */}
+            <LanguageSelector />
             <ThemeToggle />
-
-            {/* Mobile Menu Toggle */}
             <IconButton
               icon={isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -151,7 +126,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu - Sửa lại mobile menu */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="xl:hidden absolute top-full left-0 right-0 mt-2 bg-background/98 backdrop-blur-md border-2 border-border rounded-2xl p-4 shadow-border-md max-h-[80vh] overflow-y-auto">
             <div className="flex flex-col gap-1">
@@ -170,8 +145,6 @@ export default function Header() {
                   />
                 )
               })}
-
-              {/* Divider */}
               <div className="border-t border-border/50 my-2"></div>
             </div>
           </div>

@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "opensource": "Open Source",
+    "achievements": "Achievements",
+    "blogs": "Blogs",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Mai Duong Long",
+    "role": "Developer",
+    "roles": [
+      "Creative Coder",
+      "Full Stack Developer",
+      "UI/UX Enthusiast",
+      "Arch Linux User",
+      "Open Source Contributor"
+    ],
+    "description1": "With experience building ",
+    "web": "Web",
+    "description2": " and ",
+    "mobile": "Mobile",
+    "description3": " applications using JavaScript / Reactjs / Nodejs / React Native along with other modern libraries and frameworks."
+  },
+  "passion": {
+    "creativity": "Creativity & Aesthetics",
+    "creativityDesc": "Passionate about creative design and always注重 aesthetics in every product.",
+    "customUI": "Custom UI",
+    "customUIDesc": "Passionate about customizing interfaces, turning unique ideas into impressive user experiences."
+  },
+  "skills": {
+    "title": "Skills & Technologies",
+    "languages": "Languages",
+    "frameworks": "Frameworks",
+    "tools": "Tools & DB"
+  },
+  "experience": {
+    "title": "Work Experience",
+    "company": "Hitek Group",
+    "position": "Intern",
+    "period": "10/2025 - 1/2026",
+    "description": "Built and designed the Hitek Flycam and Hitek website interfaces using Next.js and Supabase."
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "cartoonShell": {
+      "title": "Cartoon Shell",
+      "description": "Cartoon Shell is a modern Wayland panel built entirely with QuickShell (QML) specifically for the Hyprland window manager."
+    },
+    "dotfiles": {
+      "title": "dotfiles hyprland",
+      "description": "Complete Hyprland (Lua) configuration with Quickshell, custom themes, and essential tools for a beautiful Wayland desktop experience."
+    },
+    "hitekFlycam": {
+      "title": "Hitek Flycam",
+      "description": "Landing page website for Hitek Flycam business designed in a simple style."
+    },
+    "billiard": {
+      "title": "Billiard Website",
+      "description": "Billiard management website designed with a minimalist modern style with real-time pricing technology."
+    },
+    "vietgreen": {
+      "title": "VietGreen",
+      "description": "VietGreen Data & AI national-scale website for collecting, standardizing, analyzing, and exploiting data on green production and sustainable consumption in Vietnam."
+    }
+  },
+  "achievements": {
+    "title": "Achievements & Milestones",
+    "items": [
+      {
+        "year": "2024",
+        "title": "Top 12 Code War Hutech",
+        "description": "Participated in Code War 2024 Hutech"
+      },
+      {
+        "year": "2022",
+        "title": "Provincial Excellent Student",
+        "description": "Participated in the provincial excellent student competition in Informatics"
+      },
+      {
+        "year": "2020",
+        "title": "Started Programming Journey",
+        "description": "Started learning programming and building first projects with JavaScript and React."
+      }
+    ],
+    "stats": {
+      "projects": "Projects Completed",
+      "startups": "Startups Collaborated",
+      "stars": "Stars on GitHub"
+    }
+  },
+  "contact": {
+    "title": "Contact Me",
+    "description": "Have a project to collaborate on? Leave a message, I'll get back to you as soon as possible.",
+    "sendEmail": "Send email",
+    "connectWithMe": "Connect with me on social media",
+    "available": "Available for work",
+    "openToCollaborate": "Open to collaborate",
+    "basedIn": "Based in Vietnam",
+    "email": "gtmailong@gmail.com"
+  }
+}

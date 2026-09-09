@@ -17,15 +17,14 @@ export default function StarField() {
   useEffect(() => {
     setMounted(true);
 
-    // Tạo ngôi sao 1 lần duy nhất
-    const numStars = 50; // tăng/giảm tùy ý
+    const numStars = 200;
     const stars: Star[] = [];
     for (let i = 0; i < numStars; i++) {
       stars.push({
         x: Math.random() * 100, // %
         y: Math.random() * 100, // %
-        size: Math.random() * 1.5 + 0.5, // px, nhỏ gọn như chấm
-        opacity: Math.random() * 0.6 + 0.2,
+        size: Math.random() * 3 + 1, // px, nhỏ gọn như chấm
+        opacity: Math.random() * 1 + 0.7,
       });
     }
     starsRef.current = stars;

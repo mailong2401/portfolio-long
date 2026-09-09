@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "about": "소개",
+    "skills": "기술",
+    "experience": "경력",
+    "opensource": "오픈소스",
+    "achievements": "성과",
+    "blogs": "블로그",
+    "contact": "연락처"
+  },
+  "hero": {
+    "title": "마이 듀엉 롱",
+    "role": "개발자",
+    "roles": [
+      "크리에이티브 코더",
+      "풀스택 개발자",
+      "UI/UX 애호가",
+      "Arch Linux 사용자",
+      "오픈소스 기여자"
+    ],
+    "description1": "다음과 같은 경험을 바탕으로 ",
+    "web": "웹",
+    "description2": " 및 ",
+    "mobile": "모바일",
+    "description3": " 애플리케이션을 JavaScript / Reactjs / Nodejs / React Native 및 기타 최신 라이브러리와 프레임워크를 사용하여 구축했습니다."
+  },
+  "passion": {
+    "creativity": "창의성 & 미학",
+    "creativityDesc": "창의적인 디자인에 열정적이며 모든 제품에서 미학을 중요시합니다.",
+    "customUI": "커스텀 UI",
+    "customUIDesc": "인터페이스 커스터마이징에 열정적이며, 독특한 아이디어를 인상적인 사용자 경험으로 전환합니다."
+  },
+  "skills": {
+    "title": "기술 및 기술 스택",
+    "languages": "언어",
+    "frameworks": "프레임워크",
+    "tools": "도구 및 DB"
+  },
+  "experience": {
+    "title": "경력 사항",
+    "company": "Hitek Group",
+    "position": "인턴",
+    "period": "2025년 10월 - 2026년 1월",
+    "description": "Next.js와 Supabase를 사용하여 Hitek Flycam 및 Hitek 웹사이트 인터페이스를 구축하고 디자인했습니다."
+  },
+  "projects": {
+    "title": "주요 프로젝트",
+    "cartoonShell": {
+      "title": "Cartoon Shell",
+      "description": "Cartoon Shell은 Hyprland 창 관리자를 위해 QuickShell(QML)로 완전히 구축된 현대적인 Wayland 패널입니다."
+    },
+    "dotfiles": {
+      "title": "dotfiles hyprland",
+      "description": "Quickshell, 커스텀 테마 및 아름다운 Wayland 데스크톱 경험을 위한 필수 도구가 포함된 완전한 Hyprland(Lua) 구성입니다."
+    },
+    "hitekFlycam": {
+      "title": "Hitek Flycam",
+      "description": "간단한 스타일로 디자인된 Hitek Flycam 비즈니스 랜딩 페이지 웹사이트입니다."
+    },
+    "billiard": {
+      "title": "당구 웹사이트",
+      "description": "실시간 가격 계산 기술을 갖춘 미니멀리스트 모던 스타일로 디자인된 당구 관리 웹사이트입니다."
+    },
+    "vietgreen": {
+      "title": "VietGreen",
+      "description": "베트남의 녹색 생산 및 지속 가능한 소비에 대한 데이터 수집, 표준화, 분석 및 활용을 위한 VietGreen Data & AI 국가 규모 웹사이트입니다."
+    }
+  },
+  "achievements": {
+    "title": "성과 및 이정표",
+    "items": [
+      {
+        "year": "2024",
+        "title": "Code War Hutech Top 12",
+        "description": "Code War 2024 Hutech 참가"
+      },
+      {
+        "year": "2022",
+        "title": "도 단위 우수 학생",
+        "description": "정보학 도 단위 우수 학생 대회 참가"
+      },
+      {
+        "year": "2020",
+        "title": "프로그래밍 여정 시작",
+        "description": "JavaScript와 React로 프로그래밍을 배우고 첫 번째 프로젝트를 구축하기 시작했습니다."
+      }
+    ],
+    "stats": {
+      "projects": "완료된 프로젝트",
+      "startups": "협력한 스타트업",
+      "stars": "GitHub 스타"
+    }
+  },
+  "contact": {
+    "title": "연락하기",
+    "description": "협업할 프로젝트가 있으신가요? 메시지를 남겨주시면 최대한 빨리 답변 드리겠습니다.",
+    "sendEmail": "이메일 보내기",
+    "connectWithMe": "소셜 미디어에서 저와 연결하세요",
+    "available": "작업 가능",
+    "openToCollaborate": "협업 환영",
+    "basedIn": "베트남 기반",
+    "email": "gtmailong@gmail.com"
+  }
+}

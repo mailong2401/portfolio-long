@@ -7,6 +7,7 @@ import {
   SiSupabase,
 } from 'react-icons/si';
 import ScrollAnimation from '@/components/ui/ScrollAnimation';
+import { useLanguage } from '@/app/contexts/LanguageContext';
 
 const experiences = [
   {
@@ -25,6 +26,8 @@ const experiences = [
 ];
 
 export default function ExperienceSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="experience" className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -32,7 +35,7 @@ export default function ExperienceSection() {
         <ScrollAnimation direction="up" delay={0.1} duration={0.6}>
           <div className="text-3xl md:text-4xl font-bold text-center mb-12">
             <h1 className="text-center text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground transition-all duration-300 hover:text-normal-blue hover:-translate-y-0.5 hover:scale-105 inline-block">
-              Kinh nghiệm làm việc
+              {t('experience.title')}
             </h1>
           </div>
         </ScrollAnimation>
@@ -63,20 +66,20 @@ export default function ExperienceSection() {
                     )}
                     <div>
                       <h3 className="text-xl font-semibold text-foreground group-hover:text-normal-red transition-colors">
-                        {exp.position}
+                        {t('experience.position')}
                       </h3>
                       <p className="text-normal-blue font-medium group-hover:text-normal-cyan transition-colors">
-                        {exp.company}
+                        {t('experience.company')}
                       </p>
                     </div>
                   </div>
                   <span className="text-primary-dim-fg text-sm mt-2 md:mt-0 bg-background/30 px-3 py-1 rounded-full border border-border/30">
-                    {exp.period}
+                    {t('experience.period')}
                   </span>
                 </div>
 
                 <p className="text-primary-dim-fg mb-4 leading-relaxed">
-                  {exp.description}
+                  {t('experience.description')}
                 </p>
 
                 {/* Technologies với icon */}

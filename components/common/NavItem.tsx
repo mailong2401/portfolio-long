@@ -18,7 +18,7 @@ interface NavItemProps {
   isOpen: boolean
   onOpen: () => void
   onClose: () => void
-  isActive: boolean   // 👈 nhận từ Header thay vì tự tính
+  isActive: boolean
 }
 
 export default function NavItem({
@@ -71,8 +71,33 @@ export default function NavItem({
     return () => clearTimeouts()
   }, [])
 
-  // 👇 gộp active thật (từ scroll/click) với hover để phản hồi tức thì
   const isLinkActive = isActive || isHovering
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href.startsWith('#')) {
+      e.preventDefault()
+
+      const targetId = href.replace('#', '')
+      const element = document.getElementById(targetId)
+
+      if (element) {
+        const headerHeight = 100 // Chiều cao header của bạn (có thể lấy dynamic)
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
+
+        window.history.pushState({}, '', href)
+      }
+
+      if (hasDropdown) {
+        onClose()
+      }
+    }
+  }
 
   return (
     <div
@@ -82,6 +107,7 @@ export default function NavItem({
     >
       <Link
         href={href}
+        onClick={handleClick} // 👈 Thêm onClick handler
         className={`px-3 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 text-sm border-2 ${isLinkActive
           ? 'bg-primary/20 text-primary border-border shadow-primary-sm'
           : 'border-transparent text-foreground hover:bg-primary/10 hover:border-border hover:text-primary hover:shadow-primary-sm'

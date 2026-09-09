@@ -7,11 +7,8 @@ export default function TerminalInfo() {
   const [textIndex, setTextIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
 
-  // Typing effect
   useEffect(() => {
     setIsVisible(true);
-
-    // Blinking cursor
     const cursorInterval = setInterval(() => {
       setShowCursor(prev => !prev);
     }, 500);
@@ -19,7 +16,6 @@ export default function TerminalInfo() {
     return () => clearInterval(cursorInterval);
   }, []);
 
-  // Sequential display of terminal lines
   useEffect(() => {
     if (textIndex < 4) {
       const timer = setTimeout(() => {

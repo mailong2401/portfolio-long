@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "about": "关于我",
+    "skills": "技能",
+    "experience": "工作经历",
+    "opensource": "开源项目",
+    "achievements": "成就",
+    "blogs": "博客",
+    "contact": "联系方式"
+  },
+  "hero": {
+    "title": "梅阳光龙",
+    "role": "开发者",
+    "roles": [
+      "创意程序员",
+      "全栈开发者",
+      "UI/UX爱好者",
+      "Arch Linux用户",
+      "开源贡献者"
+    ],
+    "description1": "拥有使用 JavaScript / Reactjs / Nodejs / React Native 以及其他现代库和框架构建",
+    "web": "Web",
+    "description2": "和",
+    "mobile": "移动",
+    "description3": "应用程序的经验。"
+  },
+  "passion": {
+    "creativity": "创意与美学",
+    "creativityDesc": "热衷于创意设计，始终注重每个产品的美学。",
+    "customUI": "自定义界面",
+    "customUIDesc": "热衷于自定义界面，将独特想法转化为令人印象深刻的用户体验。"
+  },
+  "skills": {
+    "title": "技能与技术栈",
+    "languages": "编程语言",
+    "frameworks": "框架",
+    "tools": "工具和数据库"
+  },
+  "experience": {
+    "title": "工作经历",
+    "company": "Hitek Group",
+    "position": "实习生",
+    "period": "2025年10月 - 2026年1月",
+    "description": "使用 Next.js 和 Supabase 构建和设计了 Hitek Flycam 和 Hitek 网站界面。"
+  },
+  "projects": {
+    "title": "代表性项目",
+    "cartoonShell": {
+      "title": "Cartoon Shell",
+      "description": "Cartoon Shell 是一个现代化的 Wayland 面板，完全使用 QuickShell (QML) 为 Hyprland 窗口管理器构建。"
+    },
+    "dotfiles": {
+      "title": "dotfiles hyprland",
+      "description": "完整的 Hyprland (Lua) 配置，包含 Quickshell、自定义主题和必要的工具，提供美丽的 Wayland 桌面体验。"
+    },
+    "hitekFlycam": {
+      "title": "Hitek Flycam",
+      "description": "为 Hitek Flycam 企业设计的简单风格落地页网站。"
+    },
+    "billiard": {
+      "title": "台球管理系统网站",
+      "description": "采用极简现代风格设计的台球管理网站，具有实时价格计算技术。"
+    },
+    "vietgreen": {
+      "title": "VietGreen",
+      "description": "VietGreen Data & AI 国家级网站，用于收集、标准化、分析和开发越南绿色生产和可持续消费数据。"
+    }
+  },
+  "achievements": {
+    "title": "成就与里程碑",
+    "items": [
+      {
+        "year": "2024",
+        "title": "Code War Hutech 前12名",
+        "description": "参加 Code War 2024 Hutech 比赛"
+      },
+      {
+        "year": "2022",
+        "title": "省级优秀学生",
+        "description": "参加省级信息学优秀学生竞赛"
+      },
+      {
+        "year": "2020",
+        "title": "开始编程之旅",
+        "description": "开始学习编程，并使用 JavaScript 和 React 构建第一个项目。"
+      }
+    ],
+    "stats": {
+      "projects": "已完成项目",
+      "startups": "合作初创企业",
+      "stars": "GitHub 星星"
+    }
+  },
+  "contact": {
+    "title": "联系我",
+    "description": "有项目需要合作吗？请留言，我会尽快回复您。",
+    "sendEmail": "发送邮件",
+    "connectWithMe": "通过社交媒体与我联系",
+    "available": "可接受工作",
+    "openToCollaborate": "欢迎合作",
+    "basedIn": "位于越南",
+    "email": "gtmailong@gmail.com"
+  }
+}

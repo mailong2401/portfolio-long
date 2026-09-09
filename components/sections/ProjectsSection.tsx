@@ -5,8 +5,10 @@ import Image from 'next/image';
 import { ExternalLink, Star, GitFork, AlertCircle, X, Globe, Expand } from 'lucide-react';
 import IconButton from '@/components/ui/IconButton';
 import ScrollAnimation from '@/components/ui/ScrollAnimation';
+import { useLanguage } from '@/app/contexts/LanguageContext';
 
 interface Project {
+  id: string;
   title: string;
   description: string;
   tech: string[];
@@ -20,6 +22,7 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 'cartoonShell',
     title: 'Cartoon Shell',
     description: 'Cartoon Shell is a modern Wayland panel built entirely with QuickShell (QML) specifically for Hyprland window manager.',
     tech: ['QuickShell', 'QML', 'Hyprland'],
@@ -30,6 +33,7 @@ const projects: Project[] = [
     issues: 1,
   },
   {
+    id: 'dotfiles',
     title: 'dotfiles hyprland',
     description: 'A complete Hyprland(Lua) configuration with Quickshell, custom themes, and essential tools for a beautiful Wayland desktop experience.',
     tech: ['Lua', 'Shell', 'Css'],
@@ -40,6 +44,7 @@ const projects: Project[] = [
     issues: 0,
   },
   {
+    id: 'hitekFlycam',
     title: 'Hitek Flycam',
     description: 'Website landingpage cho danh nghiệp Hitek Flycam thiết kế theo phong cách đơn giản',
     tech: ['Nextjs', 'Typescript'],
@@ -51,6 +56,7 @@ const projects: Project[] = [
     issues: 0,
   },
   {
+    id: 'billiard',
     title: 'Billiard Website',
     description: 'Xây dựng Website quản lí billiard thiết kế theo phong cách tối giản hiện đại cộng nghệ realtime tính giá tiền',
     tech: ['Nextjs', 'Nodejs', 'Typescript', 'Javascript'],
@@ -62,6 +68,7 @@ const projects: Project[] = [
     issues: 0,
   },
   {
+    id: 'vietgreen',
     title: 'VietGreen',
     description: 'Xây dựng Website VietGreen Data & AI quy mô quốc gia nhằm thu thập, chuẩn hóa, phân tích và khai thác dữ liệu về sản xuất xanh và tiêu dùng bền vững tại Việt Nam',
     tech: ['Nextjs', 'Typescript', 'Python', 'PostgreSQL'],
@@ -82,6 +89,7 @@ const formatNumber = (num: number) => {
 };
 
 export default function ProjectsSection() {
+  const { t } = useLanguage();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
   const [selectedTitle, setSelectedTitle] = useState('');
@@ -105,7 +113,7 @@ export default function ProjectsSection() {
         <ScrollAnimation direction="up" delay={0.1} duration={0.6}>
           <div className="text-3xl md:text-4xl font-bold text-center mb-12">
             <h1 className="text-center text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground transition-all duration-300 hover:text-normal-blue hover:-translate-y-0.5 hover:scale-105 inline-block">
-              Dự án tiêu biểu
+              {t('projects.title')}
             </h1>
           </div>
         </ScrollAnimation>
@@ -122,11 +130,11 @@ export default function ProjectsSection() {
                 {/* Project Image - Click để xem lớn */}
                 <div
                   className="relative w-full aspect-video overflow-hidden bg-background/30 cursor-pointer"
-                  onClick={() => openLightbox(project.image, project.title)}
+                  onClick={() => openLightbox(project.image, t(`projects.${project.id}.title`))}
                 >
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={t(`projects.${project.id}.title`)}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                     priority={index < 2}
@@ -143,7 +151,7 @@ export default function ProjectsSection() {
                   {/* Header */}
                   <div className="flex items-start justify-between mb-3">
                     <h3 className="text-2xl font-semibold text-foreground group-hover:text-normal-red transition-colors line-clamp-1">
-                      {project.title}
+                      {t(`projects.${project.id}.title`)}
                     </h3>
                     <div className="flex items-center gap-2 flex-shrink-0">
                       {/* Deploy Link - nếu có */}
@@ -172,10 +180,10 @@ export default function ProjectsSection() {
 
                   {/* Description */}
                   <p className="text-primary-dim-fg mb-4 text-sm flex-1 line-clamp-2">
-                    {project.description}
+                    {t(`projects.${project.id}.description`)}
                   </p>
 
-                  {/* Tech Stack */}
+                  {/* Tech Stack - giữ nguyên không translation */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, techIndex) => (
                       <div
