@@ -16,6 +16,7 @@ export default function MusicPlayer() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -45,6 +46,17 @@ export default function MusicPlayer() {
 
   const currentTrack = tracks[currentTrackIndex];
 
+  // Detect screen size
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsSmallScreen(window.innerWidth < 480);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   useEffect(() => {
     const audio = new Audio(currentTrack.src);
     audio.loop = false;
@@ -53,7 +65,6 @@ export default function MusicPlayer() {
 
     let isMounted = true;
 
-    // Hàm thực thi phát nhạc
     const playAudio = () => {
       if (!audioRef.current) return;
       audioRef.current
@@ -62,7 +73,6 @@ export default function MusicPlayer() {
           if (isMounted) setIsPlaying(true);
         })
         .catch(() => {
-          // Bị chặn autoplay -> Chờ tương tác đầu tiên của người dùng
           const handleFirstUserInteraction = () => {
             if (audioRef.current) {
               audioRef.current
@@ -72,7 +82,6 @@ export default function MusicPlayer() {
                 })
                 .catch((err) => console.log('Play on interaction failed:', err));
             }
-            // Xóa listener sau khi đã tương tác
             removeInteractionListeners();
           };
 
@@ -136,7 +145,6 @@ export default function MusicPlayer() {
     };
   }, [currentTrack.src, currentTrackIndex]);
 
-  // Bật / Tắt phát nhạc thủ công
   const togglePlay = () => {
     if (!audioRef.current || !isLoaded) return;
 
@@ -171,62 +179,76 @@ export default function MusicPlayer() {
 
   return (
     <div
-      className="flex items-center gap-2 rounded-full transition-all duration-300 "
-      style={{ minWidth: '280px', maxWidth: '340px' }}
+      className="flex items-center gap-1 xs:gap-2 rounded-full transition-all duration-300 px-1 xs:px-2 py-0.5 xs:py-1"
+      style={{
+        minWidth: isSmallScreen ? '120px' : '200px',
+        maxWidth: isSmallScreen ? '160px' : '340px'
+      }}
     >
-      {/* Icon & Thông tin bài hát */}
-      <div className="flex items-center gap-2 group flex-1 min-w-0">
+      {/* Icon & Thông tin bài hát - Ẩn trên màn hình cực nhỏ */}
+      <div className={`flex items-center gap-1 xs:gap-2 group flex-1 min-w-0 ${isSmallScreen ? 'hidden' : 'flex'}`}>
         {isPlaying ? (
           <div className="relative flex-shrink-0">
-            <Music size={16} className="text-primary animate-music-glow" />
+            <Music size={isSmallScreen ? 12 : 16} className="text-primary animate-music-glow" />
           </div>
         ) : (
-          <Music size={16} className="text-foreground/40 group-hover:text-foreground/60 flex-shrink-0" />
+          <Music size={isSmallScreen ? 12 : 16} className="text-foreground/40 group-hover:text-foreground/60 flex-shrink-0" />
         )}
 
         <div className="text-left min-w-0 flex-1">
-          <p className="text-xs font-medium text-foreground/80 leading-tight truncate">
-            {currentTrack.title}
+          <p className="text-[10px] xs:text-xs font-medium text-foreground/80 leading-tight truncate">
+            {isSmallScreen ? currentTrack.title.substring(0, 8) + '...' : currentTrack.title}
           </p>
-          <p className="text-[10px] text-foreground/40 leading-tight truncate">
+          <p className="hidden xs:block text-[10px] text-foreground/40 leading-tight truncate">
             {currentTrack.artist}
           </p>
         </div>
       </div>
 
+      {/* Chỉ hiện icon music khi màn hình cực nhỏ */}
+      {isSmallScreen && (
+        <div className="flex-shrink-0">
+          {isPlaying ? (
+            <Music size={14} className="text-primary animate-music-glow" />
+          ) : (
+            <Music size={14} className="text-foreground/40" />
+          )}
+        </div>
+      )}
+
       {/* Điều khiển */}
-      <div className="flex items-center gap-0.5 flex-shrink-0">
+      <div className="flex items-center gap-0.5 xs:gap-1 flex-shrink-0">
         <button
           onClick={prevTrack}
-          className="p-1 hover:bg-primary/10 rounded-full transition-colors"
+          className="p-0.5 xs:p-1 hover:bg-primary/10 rounded-full transition-colors"
           aria-label="Previous"
         >
-          <SkipBack size={14} className="text-foreground/60 hover:text-foreground" />
+          <SkipBack size={isSmallScreen ? 12 : 14} className="text-foreground/60 hover:text-foreground" />
         </button>
 
         <button
           onClick={togglePlay}
-          className="p-1.5 bg-primary hover:bg-primary/80 rounded-full transition-all transform hover:scale-105"
+          className="p-1 xs:p-1.5 bg-primary hover:bg-primary/80 rounded-full transition-all transform hover:scale-105"
           aria-label={isPlaying ? 'Pause' : 'Play'}
         >
           {isPlaying ? (
-            <Pause size={14} className="text-white" />
+            <Pause size={isSmallScreen ? 10 : 14} className="text-white" />
           ) : (
-            <Play size={14} className="text-white ml-0.5" />
+            <Play size={isSmallScreen ? 10 : 14} className="text-white ml-0.5" />
           )}
         </button>
 
         <button
           onClick={nextTrack}
-          className="p-1 hover:bg-primary/10 rounded-full transition-colors"
+          className="p-0.5 xs:p-1 hover:bg-primary/10 rounded-full transition-colors"
           aria-label="Next"
         >
-          <SkipForward size={14} className="text-foreground/60 hover:text-foreground" />
+          <SkipForward size={isSmallScreen ? 12 : 14} className="text-foreground/60 hover:text-foreground" />
         </button>
       </div>
 
-      {/* Thời gian */}
-      <div className="hidden lg:block text-[10px] text-foreground/40 font-mono min-w-[48px] text-right flex-shrink-0">
+      {/* Thời gian - Ẩn trên mobile */}
+      <div className="hidden md:block text-[10px] text-foreground/40 font-mono min-w-[48px] text-right flex-shrink-0">
         {formatTime(currentTime)}
       </div>
     </div>
