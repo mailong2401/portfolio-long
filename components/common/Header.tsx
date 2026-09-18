@@ -162,12 +162,6 @@ export default function Header() {
         {/* Mobile Menu - Overlay */}
         {isMobileMenuOpen && (
           <>
-            {/* Backdrop */}
-            <div
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 xl:hidden"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-
             {/* Menu */}
             <div
               ref={mobileMenuRef}
