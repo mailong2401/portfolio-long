@@ -104,14 +104,20 @@ export default function HeroSection() {
 
             {/* Typing effect */}
             <ScrollAnimation direction="up" delay={0.4} duration={0.6}>
-              <div className="text-xl text-primary-bright-fg mb-2 flex items-center justify-center md:justify-start gap-2 flex-wrap min-h-[2.8rem]">
-                <span className="text-normal-red">✦</span>
-                <span className="font-medium inline-flex items-center flex-wrap">
-                  <span className="text-foreground whitespace-nowrap">{t('hero.role')}</span>
-                  <span className="text-normal-red mx-1">|</span>
+              <div className="text-xl text-primary-bright-fg mb-2 flex items-center justify-center md:justify-start gap-2 flex-nowrap min-h-[2.8rem]">
+
+                <span className="text-normal-red hidden sm:inline">✦</span>
+
+                <span className="font-medium flex flex-col md:inline-flex md:flex-row items-center md:flex-nowrap">
+                  <span className="text-foreground">
+                    {t('hero.role')}
+                  </span>
+                  <span className="text-normal-red mx-1 hidden md:inline">|</span>
                   <TypingRole />
                 </span>
-                <span className="text-normal-red">✦</span>
+
+                <span className="text-normal-red hidden sm:inline">✦</span>
+
               </div>
             </ScrollAnimation>
 
