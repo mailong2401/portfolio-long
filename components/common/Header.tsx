@@ -3,7 +3,8 @@
 
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide'
+import { MorphIcon } from "morphicons/react";
 import IconButton from '@/components/ui/IconButton'
 import NavItem from '@/components/common/NavItem'
 import ThemeToggle from '@/components/common/ThemeToggle'
@@ -149,7 +150,7 @@ export default function Header() {
             <LanguageSelector />
             <ThemeToggle />
             <IconButton
-              icon={isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              icon={<MorphIcon icon={isMobileMenuOpen ? X : Menu} />}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               variant="ghost"
               size="sm"

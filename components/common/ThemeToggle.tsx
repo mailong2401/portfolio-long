@@ -3,8 +3,9 @@
 import { useTheme } from 'next-themes'
 import { useEffect, useState, useRef } from 'react'
 import { flushSync } from 'react-dom'
-import { Moon, Sun } from 'lucide-react'
+import { Moon, Sun } from 'lucide'
 import IconButton from '@/components/ui/IconButton'
+import { MorphIcon } from "morphicons/react";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme()
@@ -85,11 +86,11 @@ export default function ThemeToggle() {
       size="sm"
       className="text-foreground/60 hover:text-primary hover:bg-primary/10 transition-all"
       icon={
-        isDark ? (
-          <Moon size={18} className="text-foreground" />
-        ) : (
-          <Sun size={18} className="text-foreground" />
-        )
+        <MorphIcon
+          icon={isDark ? Moon : Sun}
+          size={18}
+          className="text-foreground"
+        />
       }
     />
   )
