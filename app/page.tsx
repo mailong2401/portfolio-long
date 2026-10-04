@@ -20,11 +20,6 @@ export default function HomePages() {
       {/* Background Elements */}
       <div className="opacity-70">
         <StarField />
-        <Astronaut />
-        <Moon />
-        <PlanetEarth />
-        <PlanetMars />
-        <PlanetSaturn />
       </div>
       {/* Content */}
       <div className="relative z-10">
